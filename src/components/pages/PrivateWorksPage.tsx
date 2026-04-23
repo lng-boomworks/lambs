@@ -11,8 +11,8 @@ import { PortfolioGallery } from "./private/PortfolioGallery";
 import { PricingBand } from "./private/PricingBand";
 import { QuoteForm } from "./private/QuoteForm";
 
-const beforeSrc = "https://picsum.photos/seed/pw-before/1600/1000";
-const afterSrc = "https://picsum.photos/seed/pw-after/1600/1000";
+const beforeSrc = "/images/private/tarmac-before.webp";
+const afterSrc = "/images/private/tarmac-after.webp";
 
 export function PrivateWorksPage() {
   return (
@@ -40,8 +40,8 @@ export function PrivateWorksPage() {
               <BeforeAfter
                 beforeSrc={beforeSrc}
                 afterSrc={afterSrc}
-                beforeAlt="Driveway before - cracked tarmac"
-                afterAlt="Driveway after - new resin finish"
+                beforeAlt="Driveway before - worn tarmac"
+                afterAlt="Driveway after - new tarmac finish"
               />
             </div>
           </div>
