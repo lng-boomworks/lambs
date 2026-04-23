@@ -57,10 +57,16 @@ export function UKMap({ variant = "full" }: UKMapProps) {
         ))}
       </div>
 
-      <div className="relative bg-[var(--color-light-grey)] border border-[var(--color-border)]">
+      <div
+        className={`relative bg-[var(--color-light-grey)] border border-[var(--color-border)] ${
+          variant === "embed"
+            ? "h-[480px] md:h-[560px] lg:h-[620px] flex items-center justify-center overflow-hidden"
+            : ""
+        }`}
+      >
         <svg
           viewBox={`0 0 ${MAP_W} ${MAP_H}`}
-          className="w-full h-auto block"
+          className={variant === "embed" ? "h-full w-auto block" : "w-full h-auto block"}
           role="img"
           aria-label="UK live works map"
         >
