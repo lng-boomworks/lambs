@@ -97,9 +97,17 @@ export function HomePage() {
             </FadeIn>
           </div>
 
-          <AnimatedHeading as="h1" className="max-w-[1100px] mb-14" stagger={40}>
-            Infrastructure services across the UK. Safely, compliantly, on programme.
+          <AnimatedHeading as="h1" className="max-w-[1100px] mb-8" stagger={40}>
+            Infrastructure services across the UK.
           </AnimatedHeading>
+
+          <FadeIn delay={360}>
+            <div className="inline-block bg-[var(--color-cyan)] text-[var(--color-dark-blue)] px-6 py-3 lg:px-8 lg:py-4 mb-14">
+              <h2 className="text-[20px] md:text-[24px] lg:text-[28px] font-semibold tracking-tight leading-none">
+                Safely, compliantly, on programme.
+              </h2>
+            </div>
+          </FadeIn>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
             <div className="lg:col-span-6">
