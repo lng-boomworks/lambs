@@ -386,27 +386,43 @@
 .strat-peel {
   position: relative;
   width: 100%;
-  height: 280px;
+  height: 320px;
   overflow: hidden;
   background: var(--color-light-grey);
+  display: flex;
+  flex-direction: column;
 }
 .strat-peel__layer {
   position: relative;
-  height: 25%;
+  flex-shrink: 0;
   transform: translateX(-100%);
   transition: transform 0.9s var(--ease-silk);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 24px;
   will-change: transform;
 }
 .strat-peel.is-visible .strat-peel__layer { transform: translateX(0); }
 .strat-peel__label {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+/* Subgrade is light so switch text to dark */
+.strat-peel__layer:last-child .strat-peel__label,
+.strat-peel__layer:last-child .strat-peel__depth {
+  color: var(--color-dark-blue);
+}
+.strat-peel__depth {
+  color: rgba(255, 255, 255, 0.65);
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 500;
+  font-variant-numeric: tabular-nums;
 }
 .strat-peel__tick {
   position: absolute;
@@ -421,21 +437,54 @@
 }
 .strat-peel.is-visible .strat-peel__tick { transform: scaleX(1); }
 
+/* Compacting roller that sweeps across the freshly laid wearing course */
+.strat-peel__roller {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 80px;
+  height: 40px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.strat-peel.is-visible .strat-peel__roller {
+  animation: strat-roller-sweep 3.4s ease-in-out 1.6s infinite;
+}
+@keyframes strat-roller-sweep {
+  0%   { transform: translateX(-90px); opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translateX(900px); opacity: 0; }
+}
+.strat-peel__roller-drum {
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.strat-peel.is-visible .strat-peel__roller-drum {
+  animation: strat-roller-spin 0.6s linear 1.6s infinite;
+}
+.strat-peel.is-visible .strat-peel__roller-drum--rear {
+  animation-delay: 1.7s;
+}
+@keyframes strat-roller-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
 /* --- Flow lines (Utilities signature) --- */
 .flow-lines { width: 100%; height: 100%; display: block; }
-.flow-lines__pulse {
-  filter: drop-shadow(0 0 8px currentColor);
-}
 
 /* --- Before/After wipe (Private Works signature) --- */
 .before-after {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   cursor: ew-resize;
   user-select: none;
   background: var(--color-light-grey);
+  --before-after-pos: 50%;
 }
 .before-after__img {
   position: absolute;
@@ -447,13 +496,10 @@
 }
 .before-after__before {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  overflow: hidden;
+  inset: 0;
+  clip-path: inset(0 calc(100% - var(--before-after-pos)) 0 0);
   filter: saturate(0.6);
 }
-.before-after__before .before-after__img { width: 100vw; max-width: none; }
 .before-after__handle {
   position: absolute;
   top: 0;
@@ -505,7 +551,9 @@
   .fibre-draw__photon animateMotion { display: none; }
   .strat-peel__layer { transform: translateX(0) !important; transition: none !important; }
   .strat-peel__tick { transform: scaleX(1) !important; transition: none !important; }
-  .flow-lines__pulse { display: none !important; }
+  .strat-peel__roller { animation: none !important; opacity: 0 !important; }
+  .strat-peel__roller-drum { animation: none !important; }
+  /* Gas / wave animations use native SVG animations; no CSS opt-out needed */
   .uk-map__pulse { animation: none !important; opacity: 0.25 !important; }
 }
 
