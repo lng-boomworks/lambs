@@ -39,6 +39,7 @@ export function UKMap({ variant = "full" }: UKMapProps) {
   };
   const sectors: Sector[] = ["All", "Telecoms", "Civil Works", "Utilities", "Private Works"];
   const selected = selectedId ? liveWorks.dots.find((d) => d.id === selectedId) : null;
+  const selectedPoint = selected ? project(selected.lat, selected.lng) : null;
 
   return (
     <div className="uk-map">
@@ -90,19 +91,38 @@ export function UKMap({ variant = "full" }: UKMapProps) {
           })}
         </svg>
 
-        {selected && (
-          <div className="absolute top-4 right-4 bg-white border border-[var(--color-border-strong)] p-5 max-w-xs shadow-md">
-            <div className="text-[11px] uppercase tracking-widest text-[var(--color-mid-blue)] font-medium mb-2">
-              {selected.sector} · {selected.status}
+        {selected && selectedPoint && (() => {
+          // Flip the popup to the LEFT of the dot if the dot is in the right half
+          // of the map (typical for UK mainland), so it appears over the empty sea
+          // on the left side and stays close to the user's focus point.
+          const leftPct = (selectedPoint.x / MAP_W) * 100;
+          const topPct = (selectedPoint.y / MAP_H) * 100;
+          const flipLeft = leftPct > 42;
+          return (
+            <div
+              className="absolute bg-white border border-[var(--color-border-strong)] p-5 w-[min(260px,80%)] shadow-lg z-10 pointer-events-auto"
+              style={{
+                left: `${leftPct}%`,
+                top: `${topPct}%`,
+                transform: flipLeft
+                  ? "translate(calc(-100% - 16px), -20px)"
+                  : "translate(16px, -20px)",
+              }}
+            >
+              <div className="text-[11px] uppercase tracking-widest text-[var(--color-mid-blue)] font-medium mb-2">
+                {selected.sector} · {selected.status}
+              </div>
+              <h4 className="text-[var(--color-dark-blue)] font-semibold text-[16px] mb-2">{selected.region}</h4>
+              <p className="text-[var(--color-charcoal)] text-[13px] leading-relaxed mb-4">{selected.note}</p>
+              <div className="flex flex-wrap gap-x-4 gap-y-2">
+                <a href={withBase("/contact")} className="text-[12px] uppercase tracking-widest text-[var(--color-dark-blue)] font-semibold hover:text-[var(--color-cyan)] transition-colors">Discuss a similar programme →</a>
+                <button type="button" onClick={() => setSelectedId(null)} className="text-[12px] uppercase tracking-widest text-[var(--color-mid-blue)] font-medium hover:text-[var(--color-dark-blue)] transition-colors">
+                  Close
+                </button>
+              </div>
             </div>
-            <h4 className="text-[var(--color-dark-blue)] font-semibold text-[16px] mb-2">{selected.region}</h4>
-            <p className="text-[var(--color-charcoal)] text-[13px] leading-relaxed mb-4">{selected.note}</p>
-            <div className="flex gap-3">
-              <a href={withBase("/contact")} className="text-[12px] uppercase tracking-widest text-[var(--color-dark-blue)] font-semibold nav-link">Discuss a similar programme →</a>
-              <button onClick={() => setSelectedId(null)} className="text-[12px] uppercase tracking-widest text-[var(--color-mid-blue)] font-medium">Close</button>
-            </div>
-          </div>
-        )}
+          );
+        })()}
       </div>
 
       {variant === "full" && (
