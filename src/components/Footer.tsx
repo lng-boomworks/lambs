@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { Logo } from "./Logo";
+import { withBase } from "../utils/paths";
 
 const linkGroups = [
   {
@@ -54,7 +55,7 @@ export function Footer() {
             {isoBadges.map((b) => (
               <img
                 key={b.label}
-                src={b.src}
+                src={withBase(b.src)}
                 alt={b.label}
                 className="h-14 w-auto object-contain brightness-0 invert opacity-75 hover:opacity-100 transition-opacity"
                 loading="lazy"
@@ -90,13 +91,16 @@ export function Footer() {
               <div key={group.title}>
                 <h4 className="eyebrow eyebrow-dark mb-6">{group.title}</h4>
                 <ul className="flex flex-col gap-3 text-[14px]">
-                  {group.links.map((link) => (
-                    <li key={link.href}>
-                      <a href={link.href} className="nav-link text-white/75 hover:text-white transition-colors">
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
+                  {group.links.map((link) => {
+                    const isExternal = link.href.startsWith("tel:") || link.href.startsWith("mailto:") || link.href.startsWith("http");
+                    return (
+                      <li key={link.href}>
+                        <a href={isExternal ? link.href : withBase(link.href)} className="nav-link text-white/75 hover:text-white transition-colors">
+                          {link.label}
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}
@@ -108,7 +112,7 @@ export function Footer() {
             © {new Date().getFullYear()} Lambs Group. Est. 1988.
           </p>
           <a
-            href="/contact"
+            href={withBase("/contact")}
             className="group inline-flex items-center gap-2 text-xs uppercase tracking-wider text-white/70 hover:text-[var(--color-cyan)] transition-colors"
           >
             Start a project

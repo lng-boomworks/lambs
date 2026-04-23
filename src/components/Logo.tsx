@@ -1,3 +1,5 @@
+import { withBase } from "../utils/paths";
+
 interface LogoProps {
   variant?: "colour" | "white";
   className?: string;
@@ -7,7 +9,7 @@ interface LogoProps {
 export function Logo({ variant = "colour", className = "", width = 140 }: LogoProps) {
   return (
     <img
-      src="/images/lambs-logo-v2.webp"
+      src={withBase("/images/lambs-logo-v2.webp")}
       alt="Lambs Group"
       className={className}
       width={width}

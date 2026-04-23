@@ -1,4 +1,5 @@
 import { Radio, HardHat, Zap, Home } from "lucide-react";
+import { withBase } from "../utils/paths";
 
 interface MegaMenuProps {
   onClose: () => void;
@@ -29,7 +30,7 @@ export function MegaMenu({ onClose }: MegaMenuProps) {
               return (
                 <a
                   key={c.href}
-                  href={c.href}
+                  href={withBase(c.href)}
                   className="group flex items-start gap-4 p-4 -mx-4 hover:bg-[var(--color-light-grey)] transition-colors duration-300"
                 >
                   <span className="flex items-center justify-center w-10 h-10 bg-[var(--color-dark-blue)] text-white group-hover:bg-[var(--color-cyan)] group-hover:text-[var(--color-dark-blue)] transition-colors duration-300">
@@ -51,7 +52,7 @@ export function MegaMenu({ onClose }: MegaMenuProps) {
             return (
               <a
                 key={d.href}
-                href={d.href}
+                href={withBase(d.href)}
                 className="group flex items-start gap-4 -mx-4 p-4 hover:bg-white transition-colors duration-300"
               >
                 <span className="flex items-center justify-center w-10 h-10 bg-[var(--color-dark-blue)] text-white group-hover:bg-[var(--color-cyan)] group-hover:text-[var(--color-dark-blue)] transition-colors duration-300">
@@ -64,7 +65,7 @@ export function MegaMenu({ onClose }: MegaMenuProps) {
               </a>
             );
           })}
-          <a href="/map" className="block mt-6 pt-6 border-t border-[var(--color-border)] text-[13px] text-[var(--color-dark-blue)] hover:text-[var(--color-cyan)] transition-colors">
+          <a href={withBase("/map")} className="block mt-6 pt-6 border-t border-[var(--color-border)] text-[13px] text-[var(--color-dark-blue)] hover:text-[var(--color-cyan)] transition-colors">
             See where we're working now →
           </a>
         </div>

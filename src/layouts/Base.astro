@@ -20,7 +20,8 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImageURL = new URL(ogImage, Astro.site);
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+const ogImageURL = new URL(ogImage.startsWith('/') ? `${baseUrl}${ogImage}` : ogImage, Astro.site);
 ---
 
 <!doctype html>
@@ -50,9 +51,9 @@ const ogImageURL = new URL(ogImage, Astro.site);
     <meta name="twitter:image" content={ogImageURL} />
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" sizes="48x48" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href={`${baseUrl}/favicon.ico`} sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="32x32" href={`${baseUrl}/favicon-32.png`} />
+    <link rel="apple-touch-icon" href={`${baseUrl}/apple-touch-icon.png`} />
 
     <!-- Fonts — Inter only per brand guide (two fonts max) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

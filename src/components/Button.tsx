@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { ArrowUpRight, ArrowRight, Calendar, Phone, Mail } from "lucide-react";
+import { withBase } from "../utils/paths";
 
 type Variant = "primary" | "secondary" | "tertiary" | "outline-white" | "accent" | "ghost";
 type Size = "sm" | "md" | "lg";
@@ -64,8 +65,15 @@ export function Button(props: ButtonProps) {
   const icon = resolveArrow(href, arrow);
 
   if (href) {
+    const isExternal =
+      href.startsWith("tel:") ||
+      href.startsWith("mailto:") ||
+      href.startsWith("http://") ||
+      href.startsWith("https://") ||
+      href.startsWith("#");
+    const resolvedHref = isExternal ? href : withBase(href);
     return (
-      <a href={href} className={classes}>
+      <a href={resolvedHref} className={classes}>
         {children}
         {icon}
       </a>

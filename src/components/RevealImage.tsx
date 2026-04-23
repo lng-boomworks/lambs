@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { withBase } from "../utils/paths";
 
 interface RevealImageProps {
   src: string;
@@ -52,7 +53,7 @@ export function RevealImage({
   return (
     <div ref={ref} className={`reveal-image ${aspect} ${className}`}>
       <img
-        src={src}
+        src={withBase(src)}
         alt={alt}
         loading={priority ? "eager" : loading}
         decoding="async"

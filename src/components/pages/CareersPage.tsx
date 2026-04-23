@@ -7,6 +7,7 @@ import { PageShell } from "../sections/PageShell";
 import { PageHero } from "../sections/PageHero";
 import { CTASection } from "../sections/CTASection";
 import { ArrowUpRight } from "lucide-react";
+import { withBase } from "../../utils/paths";
 
 const reasons = [
   { number: "01", title: "Directly employed", body: "PAYE contracts, real training, career progression and long tenures. Not agency, not sub-sub." },
@@ -86,7 +87,7 @@ export function CareersPage() {
           <ul className="border-t border-[var(--color-border-strong)]">
             {vacancies.map((v, i) => (
               <FadeIn key={v.title} as="span" delay={i * 100} className="block border-b border-[var(--color-border-strong)]">
-                <a href="/contact" className="group grid grid-cols-12 items-center gap-6 py-8 lg:py-10 hover:bg-white transition-colors duration-500 px-2">
+                <a href={withBase("/contact")} className="group grid grid-cols-12 items-center gap-6 py-8 lg:py-10 hover:bg-white transition-colors duration-500 px-2">
                   <span className="col-span-12 md:col-span-4 text-[var(--color-dark-blue)] text-[22px] lg:text-[28px] font-semibold">{v.title}</span>
                   <span className="col-span-6 md:col-span-3 text-[11px] uppercase tracking-widest text-[var(--color-mid-blue)] font-medium">{v.location}</span>
                   <span className="col-span-6 md:col-span-3 text-[11px] uppercase tracking-widest text-[var(--color-mid-blue)] font-medium">{v.type}</span>

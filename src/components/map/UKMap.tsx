@@ -1,5 +1,6 @@
 import { useState } from "react";
 import liveWorks from "../../data/live-works.json";
+import { withBase } from "../../utils/paths";
 
 type Sector = "All" | "Telecoms" | "Civil Works" | "Utilities" | "Private Works";
 
@@ -64,7 +65,7 @@ export function UKMap({ variant = "full" }: UKMapProps) {
           aria-label="UK live works map"
         >
           <image
-            href="/images/map/uk-outline.svg"
+            href={withBase("/images/map/uk-outline.svg")}
             x="0"
             y="0"
             width={MAP_W}
@@ -91,7 +92,7 @@ export function UKMap({ variant = "full" }: UKMapProps) {
             <h4 className="text-[var(--color-dark-blue)] font-semibold text-[16px] mb-2">{selected.region}</h4>
             <p className="text-[var(--color-charcoal)] text-[13px] leading-relaxed mb-4">{selected.note}</p>
             <div className="flex gap-3">
-              <a href="/contact" className="text-[12px] uppercase tracking-widest text-[var(--color-dark-blue)] font-semibold nav-link">Discuss a similar programme →</a>
+              <a href={withBase("/contact")} className="text-[12px] uppercase tracking-widest text-[var(--color-dark-blue)] font-semibold nav-link">Discuss a similar programme →</a>
               <button onClick={() => setSelectedId(null)} className="text-[12px] uppercase tracking-widest text-[var(--color-mid-blue)] font-medium">Close</button>
             </div>
           </div>

@@ -3,6 +3,7 @@ import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "./Button";
 import { Logo } from "./Logo";
 import { MegaMenu } from "./MegaMenu";
+import { BASE_URL, withBase } from "../utils/paths";
 
 const topLinks = [
   { name: "Our Work", path: "/work" },
@@ -19,7 +20,9 @@ export function Navbar() {
   const [isSectorsOpen, setIsSectorsOpen] = useState(false);
 
   useEffect(() => {
-    setLocation(window.location.pathname);
+    const path = window.location.pathname;
+    const stripped = BASE_URL && path.startsWith(BASE_URL) ? path.slice(BASE_URL.length) || "/" : path;
+    setLocation(stripped);
     const handleScroll = () => setIsScrolled(window.scrollY > 24);
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -37,7 +40,7 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 h-[76px] flex items-center justify-between">
-        <a href="/" className="flex items-center" aria-label="Lambs Group home">
+        <a href={withBase("/")} className="flex items-center" aria-label="Lambs Group home">
           <Logo variant={onDark ? "white" : "colour"} width={140} />
         </a>
 
@@ -63,7 +66,7 @@ export function Navbar() {
             {topLinks.map((link) => (
               <li key={link.path}>
                 <a
-                  href={link.path}
+                  href={withBase(link.path)}
                   className={`nav-link transition-colors duration-300 ${
                     onDark ? "text-white/80 hover:text-white" : "text-[var(--color-dark-blue)] hover:text-[var(--color-cyan)]"
                   } ${location === link.path ? "is-active" : ""}`}
@@ -105,20 +108,20 @@ export function Navbar() {
       >
         <div className="px-6 py-8 flex flex-col gap-5">
           <div className="eyebrow eyebrow-dark">Commercial</div>
-          <a href="/telecoms" className="block py-2 text-[22px] text-white font-semibold hover:text-[var(--color-cyan)]">Telecoms</a>
-          <a href="/civil-works" className="block py-2 text-[22px] text-white font-semibold hover:text-[var(--color-cyan)]">Civil Works</a>
-          <a href="/utilities" className="block py-2 text-[22px] text-white font-semibold hover:text-[var(--color-cyan)]">Utilities</a>
+          <a href={withBase("/telecoms")} className="block py-2 text-[22px] text-white font-semibold hover:text-[var(--color-cyan)]">Telecoms</a>
+          <a href={withBase("/civil-works")} className="block py-2 text-[22px] text-white font-semibold hover:text-[var(--color-cyan)]">Civil Works</a>
+          <a href={withBase("/utilities")} className="block py-2 text-[22px] text-white font-semibold hover:text-[var(--color-cyan)]">Utilities</a>
 
           <div className="eyebrow eyebrow-dark mt-4">Domestic</div>
-          <a href="/private-works" className="block py-2 text-[22px] text-white font-semibold hover:text-[var(--color-cyan)]">Private Works</a>
+          <a href={withBase("/private-works")} className="block py-2 text-[22px] text-white font-semibold hover:text-[var(--color-cyan)]">Private Works</a>
 
           <div className="eyebrow eyebrow-dark mt-4">Company</div>
           {topLinks.map((link) => (
-            <a key={link.path} href={link.path} className="block py-2 text-[20px] text-white/90 font-medium hover:text-[var(--color-cyan)]">
+            <a key={link.path} href={withBase(link.path)} className="block py-2 text-[20px] text-white/90 font-medium hover:text-[var(--color-cyan)]">
               {link.name}
             </a>
           ))}
-          <a href="/contact" className="block py-2 text-[20px] text-white/90 font-medium hover:text-[var(--color-cyan)]">Contact</a>
+          <a href={withBase("/contact")} className="block py-2 text-[20px] text-white/90 font-medium hover:text-[var(--color-cyan)]">Contact</a>
 
           <div className="pt-6 flex flex-col gap-3">
             <a href="tel:01925810991" className="flex items-center gap-2 text-white/80 text-sm">

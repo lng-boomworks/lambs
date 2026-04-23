@@ -7,6 +7,7 @@ import { NumberTicker } from "../NumberTicker";
 import { PageShell } from "../sections/PageShell";
 import { CTASection } from "../sections/CTASection";
 import { UKMap } from "../map/UKMap";
+import { withBase } from "../../utils/paths";
 
 const heroImage = "/images/hero/home-field.webp";
 const aboutImage = "/images/hero/careers-crew.webp";
@@ -80,7 +81,7 @@ export function HomePage() {
         <div className="absolute inset-0 grid-bg opacity-60" aria-hidden="true" />
         <div className="absolute right-0 top-0 bottom-0 w-full lg:w-1/2 pointer-events-none">
           <div className="reveal-image is-visible h-full w-full">
-            <img src={heroImage} alt="" className="h-full w-full object-cover opacity-40 lg:opacity-80" />
+            <img src={withBase(heroImage)} alt="" className="h-full w-full object-cover opacity-40 lg:opacity-80" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent lg:from-white lg:via-white/40" aria-hidden="true" />
         </div>
@@ -287,7 +288,7 @@ export function HomePage() {
               <FadeIn key={client.name} delay={i * 40}>
                 <div className="logo-tile bg-white h-24 flex items-center justify-center px-6">
                   <img
-                    src={client.logo}
+                    src={withBase(client.logo)}
                     alt={client.name}
                     className="max-h-10 max-w-full w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
                     loading="lazy"
