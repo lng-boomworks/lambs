@@ -10,7 +10,15 @@ const sectorColour: Record<string, string> = {
   "Private Works": "#B8CBDE",
 };
 
-const ukPath = "M420 80 L 470 100 L 500 150 L 540 200 L 560 260 L 560 320 L 540 360 L 500 400 L 480 440 L 470 480 L 490 520 L 530 550 L 560 600 L 570 660 L 550 700 L 520 720 L 480 720 L 440 700 L 400 680 L 360 660 L 330 640 L 310 600 L 300 550 L 290 500 L 290 450 L 310 420 L 340 390 L 350 350 L 350 300 L 340 250 L 350 200 L 370 150 L 400 110 Z";
+const MAP_W = 885.546;
+const MAP_H = 1368.581;
+const BOUNDS = { north: 61.0, south: 49.0, west: -11.0, east: 2.2 };
+
+function project(lat: number, lng: number) {
+  const x = ((lng - BOUNDS.west) / (BOUNDS.east - BOUNDS.west)) * MAP_W;
+  const y = ((BOUNDS.north - lat) / (BOUNDS.north - BOUNDS.south)) * MAP_H;
+  return { x, y };
+}
 
 interface UKMapProps {
   variant?: "full" | "embed";
@@ -49,14 +57,30 @@ export function UKMap({ variant = "full" }: UKMapProps) {
       </div>
 
       <div className="relative bg-[var(--color-light-grey)] border border-[var(--color-border)]">
-        <svg viewBox="0 0 800 800" className="w-full h-auto" role="img" aria-label="UK live works map">
-          <path d={ukPath} fill="none" stroke="#264A88" strokeWidth="1.5" opacity="0.7" />
-          {dots.map((d) => (
-            <g key={d.id} onClick={() => setSelectedId(d.id)} style={{ cursor: "pointer" }}>
-              <circle cx={d.x} cy={d.y} r="14" fill={sectorColour[d.sector] || "#6CC5EA"} opacity="0.18" className="uk-map__pulse" style={{ animationDelay: `${(d.x + d.y) % 3}s` }} />
-              <circle cx={d.x} cy={d.y} r="5" fill={sectorColour[d.sector] || "#6CC5EA"} />
-            </g>
-          ))}
+        <svg
+          viewBox={`0 0 ${MAP_W} ${MAP_H}`}
+          className="w-full h-auto block"
+          role="img"
+          aria-label="UK live works map"
+        >
+          <image
+            href="/images/map/uk-outline.svg"
+            x="0"
+            y="0"
+            width={MAP_W}
+            height={MAP_H}
+            preserveAspectRatio="xMidYMid meet"
+          />
+          {dots.map((d) => {
+            const { x, y } = project(d.lat, d.lng);
+            const colour = sectorColour[d.sector] || "#6CC5EA";
+            return (
+              <g key={d.id} onClick={() => setSelectedId(d.id)} style={{ cursor: "pointer" }}>
+                <circle cx={x} cy={y} r="22" fill={colour} opacity="0.18" className="uk-map__pulse" style={{ animationDelay: `${((x + y) | 0) % 3}s` }} />
+                <circle cx={x} cy={y} r="8" fill={colour} stroke="#ffffff" strokeWidth="2" />
+              </g>
+            );
+          })}
         </svg>
 
         {selected && (
@@ -76,7 +100,7 @@ export function UKMap({ variant = "full" }: UKMapProps) {
 
       {variant === "full" && (
         <p className="text-[var(--color-mid-blue)] text-[11px] uppercase tracking-widest mt-4 font-medium">
-          Last updated {liveWorks.lastUpdated} · Regions approximate · NDA-redacted where applicable
+          Last updated {liveWorks.lastUpdated} · Regions approximate · NDA-redacted where applicable · Outline: Wikimedia Commons / NordNordWest (CC-BY-SA 3.0)
         </p>
       )}
     </div>

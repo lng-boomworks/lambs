@@ -1,15 +1,15 @@
 {
   "lastUpdated": "2026-04-23",
   "dots": [
-    { "id": "nw-01", "region": "Warrington, NW", "sector": "Telecoms", "x": 360, "y": 440, "status": "Active", "note": "Motif rollout · NW region" },
-    { "id": "nw-02", "region": "Manchester, NW", "sector": "Civil Works", "x": 395, "y": 425, "status": "Active", "note": "Barratt civils framework" },
-    { "id": "nw-03", "region": "Liverpool, NW", "sector": "Utilities", "x": 340, "y": 430, "status": "Active", "note": "Utilities mains — housing scheme" },
-    { "id": "nw-04", "region": "Warrington, NW", "sector": "Private Works", "x": 365, "y": 445, "status": "Active", "note": "Domestic drives · local" },
-    { "id": "mid-01", "region": "Birmingham, Midlands", "sector": "Telecoms", "x": 410, "y": 555, "status": "Active", "note": "Motif rollout · Midlands" },
-    { "id": "mid-02", "region": "Leicester, Midlands", "sector": "Civil Works", "x": 450, "y": 545, "status": "Active", "note": "Local authority reinstatement" },
-    { "id": "yh-01", "region": "Leeds, Yorks", "sector": "Telecoms", "x": 435, "y": 390, "status": "Active", "note": "Fibre · urban" },
-    { "id": "se-01", "region": "London, SE", "sector": "Utilities", "x": 530, "y": 625, "status": "Active", "note": "LV jointing · DNO scheme" },
-    { "id": "sw-01", "region": "Bristol, SW", "sector": "Civil Works", "x": 380, "y": 625, "status": "Active", "note": "Barratt civils" },
-    { "id": "ne-01", "region": "Newcastle, NE", "sector": "Telecoms", "x": 450, "y": 305, "status": "Active", "note": "Fibre splicing" }
+    { "id": "nw-01", "region": "Warrington, NW", "sector": "Telecoms", "lat": 53.39, "lng": -2.597, "status": "Active", "note": "Motif rollout · NW region" },
+    { "id": "nw-02", "region": "Manchester, NW", "sector": "Civil Works", "lat": 53.481, "lng": -2.243, "status": "Active", "note": "Barratt civils framework" },
+    { "id": "nw-03", "region": "Liverpool, NW", "sector": "Utilities", "lat": 53.408, "lng": -2.992, "status": "Active", "note": "Utilities mains — housing scheme" },
+    { "id": "nw-04", "region": "Warrington, NW", "sector": "Private Works", "lat": 53.385, "lng": -2.58, "status": "Active", "note": "Domestic drives · local" },
+    { "id": "mid-01", "region": "Birmingham, Midlands", "sector": "Telecoms", "lat": 52.486, "lng": -1.89, "status": "Active", "note": "Motif rollout · Midlands" },
+    { "id": "mid-02", "region": "Leicester, Midlands", "sector": "Civil Works", "lat": 52.637, "lng": -1.14, "status": "Active", "note": "Local authority reinstatement" },
+    { "id": "yh-01", "region": "Leeds, Yorks", "sector": "Telecoms", "lat": 53.801, "lng": -1.549, "status": "Active", "note": "Fibre · urban" },
+    { "id": "se-01", "region": "London, SE", "sector": "Utilities", "lat": 51.507, "lng": -0.128, "status": "Active", "note": "LV jointing · DNO scheme" },
+    { "id": "sw-01", "region": "Bristol, SW", "sector": "Civil Works", "lat": 51.454, "lng": -2.588, "status": "Active", "note": "Barratt civils" },
+    { "id": "ne-01", "region": "Newcastle, NE", "sector": "Telecoms", "lat": 54.978, "lng": -1.618, "status": "Active", "note": "Fibre splicing" }
   ]
 }
