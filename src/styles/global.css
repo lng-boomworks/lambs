@@ -5,32 +5,29 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* Lambs UK brand palette */
-  --color-ink: #0A0E1A;           /* deep near-black */
-  --color-ink-soft: #141927;
-  --color-hivis: #FFD60A;         /* safety yellow accent */
-  --color-hivis-dim: #E6C009;
-  --color-concrete: #6B7280;      /* muted grey */
-  --color-concrete-light: #9CA3AF;
-  --color-steel: #1E3A5F;         /* steel blue accent */
-  --color-steel-light: #2A4D78;
-  --color-warm-white: #FAFAF9;
-  --color-cream: #F5F5F4;
+  /* Lambs Group brand palette (from docs/brand/Brand Guidelines.pdf) */
+  --color-dark-blue: #264A88;
+  --color-cyan: #6CC5EA;
+  --color-mid-blue: #7DA0C3;
+  --color-light-grey: #F5F5F7;
+  --color-charcoal: #242A38;
   --color-white: #FFFFFF;
-  --color-border: rgba(10, 14, 26, 0.08);
-  --color-border-strong: rgba(10, 14, 26, 0.14);
+
+  /* Derived tints for borders and rules */
+  --color-border: rgba(125, 160, 195, 0.18);        /* mid-blue @ 18% */
+  --color-border-strong: rgba(125, 160, 195, 0.32); /* mid-blue @ 32% */
 
   /* Semantic tokens */
-  --color-background: var(--color-warm-white);
-  --color-foreground: var(--color-ink);
-  --color-muted: var(--color-concrete);
-  --color-accent: var(--color-hivis);
-  --color-primary: var(--color-ink);
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-charcoal);
+  --color-muted: var(--color-mid-blue);
+  --color-accent: var(--color-cyan);
+  --color-primary: var(--color-dark-blue);
   --color-primary-foreground: var(--color-white);
   --color-card: var(--color-white);
-  --color-card-foreground: var(--color-ink);
+  --color-card-foreground: var(--color-charcoal);
 
-  /* Typography — Inter only per brand guide (two fonts max) */
+  /* Typography — Inter only */
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
 
@@ -56,45 +53,42 @@
     font-size: 16px;
     line-height: 1.65;
     font-weight: 400;
-    font-feature-settings: "ss01", "cv11";
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: -0.02em;
-    color: var(--color-ink);
-    line-height: 1.05;
+    color: var(--color-dark-blue);
+    line-height: 1.08;
   }
 
   h1 {
     font-size: clamp(44px, 6.5vw, 104px);
-    letter-spacing: -0.035em;
-    font-weight: 600;
+    letter-spacing: -0.025em;
   }
 
   h2 {
     font-size: clamp(34px, 4.5vw, 64px);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
   }
 
   h3 {
     font-size: clamp(22px, 2.4vw, 30px);
-    letter-spacing: -0.02em;
   }
 
   p {
-    color: var(--color-ink);
+    color: var(--color-charcoal);
   }
 
   ::selection {
-    background: var(--color-hivis);
-    color: var(--color-ink);
+    background: var(--color-cyan);
+    color: var(--color-dark-blue);
   }
 
   *:focus-visible {
-    outline: 2px solid var(--color-hivis);
-    outline-offset: 3px;
+    outline: 2px solid var(--color-dark-blue);
+    outline-offset: 2px;
     border-radius: 2px;
   }
 }
