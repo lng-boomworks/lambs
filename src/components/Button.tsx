@@ -1,98 +1,80 @@
-import type React from "react";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import type { ReactNode } from "react";
+import { ArrowUpRight, ArrowRight, Calendar, Phone, Mail } from "lucide-react";
 
-type Variant = "primary" | "accent" | "ghost" | "outline-white" | "white";
+type Variant = "primary" | "secondary" | "tertiary" | "outline-white" | "accent" | "ghost";
+type Size = "sm" | "md" | "lg";
+type Arrow = "right" | "up-right" | "none";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: Variant;
+interface ButtonProps {
   href?: string;
-  external?: boolean;
-  arrow?: "right" | "up-right" | "none";
-  size?: "md" | "lg";
+  onClick?: () => void;
+  type?: "button" | "submit" | "reset";
+  variant?: Variant;
+  size?: Size;
+  arrow?: Arrow;
+  className?: string;
+  children: ReactNode;
 }
 
-/**
- * Button — four variants tuned for the Lambs brand:
- *  - primary:  ink background, white text (default dark CTA)
- *  - accent:   hi-vis yellow background, ink text (standout CTA)
- *  - ghost:    transparent with ink border
- *  - outline-white: transparent with white border (on dark)
- *  - white:    solid white background, ink text (on dark)
- *
- * All variants animate the trailing arrow on hover via the .btn-arrow class
- * defined in global.css.
- */
-export function Button({
-  variant = "primary",
-  href,
-  external,
-  className = "",
-  children,
-  arrow = "right",
-  size = "md",
-  ...props
-}: ButtonProps) {
-  const sizeClass =
-    size === "lg"
-      ? "px-8 py-4 text-[15px]"
-      : "px-6 py-3.5 text-[14px]";
+const variantClasses: Record<Variant, string> = {
+  primary:
+    "bg-[var(--color-cyan)] text-[var(--color-dark-blue)] hover:bg-[color-mix(in_srgb,var(--color-cyan)_85%,var(--color-dark-blue))]",
+  accent:
+    "bg-[var(--color-cyan)] text-[var(--color-dark-blue)] hover:bg-[color-mix(in_srgb,var(--color-cyan)_85%,var(--color-dark-blue))]",
+  secondary:
+    "border border-[var(--color-dark-blue)] text-[var(--color-dark-blue)] hover:bg-[var(--color-cyan)] hover:text-[var(--color-dark-blue)]",
+  tertiary:
+    "text-[var(--color-dark-blue)] underline underline-offset-4 decoration-transparent decoration-2 hover:decoration-[var(--color-cyan)]",
+  "outline-white":
+    "border border-white text-white hover:bg-white hover:text-[var(--color-dark-blue)]",
+  ghost:
+    "text-[var(--color-dark-blue)] hover:bg-[var(--color-light-grey)]",
+};
+
+const sizeClasses: Record<Size, string> = {
+  sm: "h-9 px-4 text-[13px]",
+  md: "h-11 px-5 text-[14px]",
+  lg: "h-14 px-8 text-[15px]",
+};
+
+function resolveArrow(href?: string, arrow?: Arrow) {
+  if (arrow === "none") return null;
+  if (href?.startsWith("tel:")) return <Phone className="w-4 h-4 btn-arrow" />;
+  if (href?.startsWith("mailto:")) return <Mail className="w-4 h-4 btn-arrow" />;
+  if (href?.includes("calendly")) return <Calendar className="w-4 h-4 btn-arrow" />;
+  if (arrow === "up-right") return <ArrowUpRight className="w-4 h-4 btn-arrow" />;
+  return <ArrowRight className="w-4 h-4 btn-arrow" />;
+}
+
+export function Button(props: ButtonProps) {
+  const {
+    href,
+    onClick,
+    type = "button",
+    variant = "primary",
+    size = "md",
+    arrow,
+    className = "",
+    children,
+  } = props;
 
   const base =
-    `group btn inline-flex items-center justify-center gap-2.5 rounded-none font-medium tracking-tight ` +
-    `transition-all duration-300 ease-out border relative overflow-hidden ${sizeClass}`;
-
-  const variants: Record<Variant, string> = {
-    primary:
-      "bg-[var(--color-ink)] text-white border-[var(--color-ink)] hover:bg-[var(--color-ink-soft)]",
-    accent:
-      "bg-[var(--color-hivis)] text-[var(--color-ink)] border-[var(--color-hivis)] hover:bg-[var(--color-hivis-dim)]",
-    ghost:
-      "bg-transparent text-[var(--color-ink)] border-[var(--color-ink)] hover:bg-[var(--color-ink)] hover:text-white",
-    "outline-white":
-      "bg-transparent text-white border-white/70 hover:bg-white hover:text-[var(--color-ink)]",
-    white:
-      "bg-white text-[var(--color-ink)] border-white hover:bg-[var(--color-cream)]",
-  };
-
-  const classes = `${base} ${variants[variant]} ${className}`;
-
-  const ArrowIcon = arrow === "up-right" ? ArrowUpRight : ArrowRight;
-
-  const content = (
-    <>
-      <span className="relative z-10">{children}</span>
-      {arrow !== "none" && (
-        <ArrowIcon
-          className="btn-arrow relative z-10 w-4 h-4"
-          aria-hidden="true"
-        />
-      )}
-    </>
-  );
+    "group inline-flex items-center justify-center gap-2.5 font-medium tracking-tight transition-all duration-400 ease-out";
+  const classes = `${base} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+  const icon = resolveArrow(href, arrow);
 
   if (href) {
-    if (external) {
-      return (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={classes}
-        >
-          {content}
-        </a>
-      );
-    }
     return (
       <a href={href} className={classes}>
-        {content}
+        {children}
+        {icon}
       </a>
     );
   }
-
   return (
-    <button className={classes} {...props}>
-      {content}
+    <button onClick={onClick} type={type} className={classes}>
+      {children}
+      {icon}
     </button>
   );
 }

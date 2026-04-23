@@ -21,7 +21,7 @@ export function AnimatedHeading({
   children,
   as: Tag = "h2",
   className = "",
-  stagger = 55,
+  stagger = 40,
   delay = 0,
   trailing,
 }: AnimatedHeadingProps) {
