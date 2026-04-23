@@ -39,6 +39,9 @@ export function StratPeel({ className = "" }: StratPeelProps) {
       {layers.map((layer, i) => {
         // Delay lowest layer first (it's laid first in real construction)
         const stepsFromBottom = layers.length - 1 - i;
+        const transitionDelayMs = stepsFromBottom * 220;
+        // Settle flash fires just as the slide finishes
+        const settleDelayMs = transitionDelayMs + 760;
         return (
           <div
             key={layer.label}
@@ -46,7 +49,8 @@ export function StratPeel({ className = "" }: StratPeelProps) {
             style={{
               backgroundColor: layer.fill,
               height: `${layer.heightPct}%`,
-              transitionDelay: `${stepsFromBottom * 220}ms`,
+              transitionDelay: `${transitionDelayMs}ms`,
+              animationDelay: `${settleDelayMs}ms`,
             }}
           >
             <span className="strat-peel__label">{layer.label}</span>
