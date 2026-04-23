@@ -366,6 +366,128 @@
   transition: top 0.15s linear;
 }
 
+/* --- Fibre draw (Telecoms signature) --- */
+.fibre-draw { width: 100%; height: 100%; display: block; }
+.fibre-draw__line {
+  stroke-dasharray: 2400;
+  stroke-dashoffset: 2400;
+  transition: stroke-dashoffset 1.4s var(--ease-silk);
+}
+.fibre-draw.is-visible .fibre-draw__line { stroke-dashoffset: 0; }
+.fibre-draw__node {
+  fill: #6CC5EA;
+  opacity: 0;
+  transform-origin: center;
+  animation: fibreNodePulse 3s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.fibre-draw.is-visible .fibre-draw__node { animation-play-state: running; }
+@keyframes fibreNodePulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.8); }
+}
+
+/* --- Strat peel (Civils signature) --- */
+.strat-peel {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  background: var(--color-light-grey);
+}
+.strat-peel__layer {
+  position: relative;
+  height: 25%;
+  transform: translateX(-100%);
+  transition: transform 0.9s var(--ease-silk);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  will-change: transform;
+}
+.strat-peel.is-visible .strat-peel__layer { transform: translateX(0); }
+.strat-peel__label {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.strat-peel__tick {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-cyan);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1.1s var(--ease-silk) 0.5s;
+}
+.strat-peel.is-visible .strat-peel__tick { transform: scaleX(1); }
+
+/* --- Flow lines (Utilities signature) --- */
+.flow-lines { width: 100%; height: 100%; display: block; }
+.flow-lines__pulse {
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+/* --- Before/After wipe (Private Works signature) --- */
+.before-after {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+  background: var(--color-light-grey);
+}
+.before-after__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.before-after__before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  filter: saturate(0.6);
+}
+.before-after__before .before-after__img { width: 100vw; max-width: none; }
+.before-after__handle {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: var(--color-cyan);
+  transform: translateX(-1px);
+  cursor: ew-resize;
+  z-index: 2;
+}
+.before-after__handle-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: var(--color-cyan);
+  color: var(--color-dark-blue);
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  letter-spacing: -1px;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
 /* Prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .heading-reveal .word > span,
@@ -383,4 +505,9 @@
   ::view-transition-new(root) {
     animation-duration: 0.01ms !important;
   }
+  .fibre-draw__line { stroke-dashoffset: 0 !important; transition: none !important; }
+  .fibre-draw__node { animation: none !important; opacity: 0.7 !important; }
+  .strat-peel__layer { transform: translateX(0) !important; transition: none !important; }
+  .strat-peel__tick { transform: scaleX(1) !important; transition: none !important; }
+  .flow-lines__pulse { display: none !important; }
 }
