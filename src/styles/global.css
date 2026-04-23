@@ -376,18 +376,11 @@
   transition: stroke-dashoffset 1.4s var(--ease-silk);
 }
 .fibre-draw.is-visible .fibre-draw__line { stroke-dashoffset: 0; }
-.fibre-draw__node {
-  fill: #6CC5EA;
+.fibre-draw__photon {
   opacity: 0;
-  transform-origin: center;
-  animation: fibreNodePulse 3s ease-in-out infinite;
-  animation-play-state: paused;
+  transition: opacity 0.6s ease 1s;
 }
-.fibre-draw.is-visible .fibre-draw__node { animation-play-state: running; }
-@keyframes fibreNodePulse {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.8); }
-}
+.fibre-draw.is-visible .fibre-draw__photon { opacity: 1; }
 
 /* --- Strat peel (Civils signature) --- */
 .strat-peel {
@@ -508,7 +501,8 @@
     animation-duration: 0.01ms !important;
   }
   .fibre-draw__line { stroke-dashoffset: 0 !important; transition: none !important; }
-  .fibre-draw__node { animation: none !important; opacity: 0.7 !important; }
+  .fibre-draw__photon { opacity: 1 !important; }
+  .fibre-draw__photon animateMotion { display: none; }
   .strat-peel__layer { transform: translateX(0) !important; transition: none !important; }
   .strat-peel__tick { transform: scaleX(1) !important; transition: none !important; }
   .flow-lines__pulse { display: none !important; }
