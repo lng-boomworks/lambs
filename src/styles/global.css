@@ -285,6 +285,87 @@
   transform: translateY(-2px);
 }
 
+/* --- Page transition curtain (Dark Blue sweep) --- */
+.page-transition-curtain {
+  position: fixed;
+  inset: 0;
+  background: var(--color-dark-blue);
+  transform: translateY(100%);
+  z-index: 100;
+  pointer-events: none;
+  will-change: transform;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 500ms;
+  animation-timing-function: var(--ease-silk);
+}
+
+/* --- Scroll progress bar (top of viewport) --- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(125, 160, 195, 0.25);
+  z-index: 60;
+  pointer-events: none;
+}
+.scroll-progress__fill {
+  width: 100%;
+  height: 100%;
+  background: var(--color-cyan);
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+/* --- Sector index (fixed left rail, desktop only) --- */
+.sector-index {
+  display: none;
+  position: fixed;
+  top: 140px;
+  left: 32px;
+  z-index: 30;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  pointer-events: none;
+}
+@media (min-width: 1280px) {
+  .sector-index { display: flex; }
+}
+.sector-index__label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-mid-blue);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  margin-bottom: 4px;
+}
+.sector-index__rail {
+  position: relative;
+  width: 1px;
+  height: 220px;
+  background: var(--color-mid-blue);
+  opacity: 0.4;
+}
+.sector-index__dot {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  background: var(--color-cyan);
+  border-radius: 50%;
+  transition: top 0.15s linear;
+}
+
 /* Prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .heading-reveal .word > span,
@@ -294,5 +375,12 @@
     transform: none !important;
     opacity: 1 !important;
     clip-path: inset(0 0 0 0) !important;
+  }
+  .page-transition-curtain {
+    display: none !important;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.01ms !important;
   }
 }
