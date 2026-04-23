@@ -5,6 +5,7 @@ import { ScrollProgress } from "../ScrollProgress";
 import { PageShell } from "../sections/PageShell";
 import { PageHero } from "../sections/PageHero";
 import { CTASection } from "../sections/CTASection";
+import { withBase } from "../../utils/paths";
 
 const stages = [
   { icon: PhoneCall, number: "01", title: "Brief", promise: "You call. We listen.", body: "Send the brief. Scope, timing, sector, constraints. We read it, ring you back within one working day, and tell you honestly whether we're the right crew for it.", chip: "1 working day", image: "https://picsum.photos/seed/stage-brief/1000/700" },
@@ -39,7 +40,7 @@ export function HowWeDeliverPage() {
             <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
               <div className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
                 <div className="lg:col-span-7">
-                  <img src={stage.image} alt={stage.title} className="w-full aspect-[4/3] object-cover" />
+                  <img src={withBase(stage.image)} alt={stage.title} className="w-full aspect-[4/3] object-cover" />
                 </div>
                 <div className="lg:col-span-5">
                   <FadeIn>

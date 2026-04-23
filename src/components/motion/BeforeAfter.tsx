@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { withBase } from "../../utils/paths";
 
 interface BeforeAfterProps {
   beforeSrc: string;
@@ -66,9 +67,9 @@ export function BeforeAfter({
       onMouseLeave={() => setDragging(false)}
       onTouchMove={(e) => { if (e.touches[0]) updateFromClientX(e.touches[0].clientX); }}
     >
-      <img src={afterSrc} alt={afterAlt} className="before-after__img" />
+      <img src={withBase(afterSrc)} alt={afterAlt} className="before-after__img" />
       <div className="before-after__before" style={{ width: `${pos}%` }}>
-        <img src={beforeSrc} alt={beforeAlt} className="before-after__img" />
+        <img src={withBase(beforeSrc)} alt={beforeAlt} className="before-after__img" />
       </div>
       <div
         className="before-after__handle"

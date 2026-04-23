@@ -7,6 +7,7 @@ import { Button } from "../Button";
 import { PageShell } from "../sections/PageShell";
 import { PageHero } from "../sections/PageHero";
 import { CTASection } from "../sections/CTASection";
+import { withBase } from "../../utils/paths";
 
 type Sector = "All" | "Telecoms" | "Civil Works" | "Utilities" | "Private Works";
 
@@ -54,7 +55,7 @@ export function CaseStudiesPage() {
               <a href={flagship.href} className="group block bg-[var(--color-dark-blue)] text-white mb-24 overflow-hidden">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
                   <div className="lg:col-span-7 aspect-video lg:aspect-auto lg:min-h-[520px] relative overflow-hidden">
-                    <img src={flagship.image} alt={flagship.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                    <img src={withBase(flagship.image)} alt={flagship.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                   </div>
                   <div className="lg:col-span-5 p-10 lg:p-14 flex flex-col justify-center">
                     <span className="eyebrow eyebrow-dark mb-6">Flagship · {flagship.sector}</span>
