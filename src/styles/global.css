@@ -165,6 +165,8 @@
   overflow: hidden;
   vertical-align: top;
   padding-right: 0.22em;
+  padding-bottom: 0.22em;
+  margin-bottom: -0.22em;
 }
 .heading-reveal .word > span {
   display: inline-block;
