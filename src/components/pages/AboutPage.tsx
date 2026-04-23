@@ -5,8 +5,8 @@ import { PageShell } from "../sections/PageShell";
 import { PageHero } from "../sections/PageHero";
 import { CTASection } from "../sections/CTASection";
 
-const storyImage = "https://picsum.photos/seed/lambs-warrington-hq/1600/2000";
-const fieldImage = "https://picsum.photos/seed/lambs-crew-on-site/1600/1200";
+const storyImage = "/images/hero/careers-crew.webp";
+const fieldImage = "/images/utilities/job-03.webp";
 
 const values = [
   { number: "01", title: "Directly employed workforce", description: "100+ directly employed operatives and engineers. Not agency, not sub-sub. PAYE, trained, accountable.", chip: "100+ operatives" },

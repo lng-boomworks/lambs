@@ -8,8 +8,8 @@ import { PageShell } from "../sections/PageShell";
 import { CTASection } from "../sections/CTASection";
 import { UKMap } from "../map/UKMap";
 
-const heroImage = "https://picsum.photos/seed/lambs-hero-infrastructure/1800/2200";
-const aboutImage = "https://picsum.photos/seed/lambs-team-civils/1400/1800";
+const heroImage = "/images/hero/home-field.webp";
+const aboutImage = "/images/hero/careers-crew.webp";
 
 const commercialSectors = [
   {
@@ -44,7 +44,25 @@ const domesticSector = {
 };
 
 const clients = [
-  "Fujitsu", "Virgin Media", "Barratt Developments", "Alfred McAlpine", "Bury Council", "Kier",
+  { name: "Fujitsu", logo: "/images/clients/fujitsu.webp" },
+  { name: "Barratt Developments", logo: "/images/clients/barratt.webp" },
+  { name: "OCU Group", logo: "/images/clients/ocu-group.webp" },
+  { name: "Kelly Group", logo: "/images/clients/kelly-group.webp" },
+  { name: "MJ Quinn", logo: "/images/clients/mj-quinn.webp" },
+  { name: "Circet", logo: "/images/clients/circet.webp" },
+  { name: "M Group", logo: "/images/clients/mgroup.webp" },
+  { name: "MAP Group", logo: "/images/clients/map-group.webp" },
+  { name: "Freedom Fibre", logo: "/images/clients/freedom-fibre.webp" },
+  { name: "Svella Connect", logo: "/images/clients/svella.webp" },
+  { name: "JN Civils", logo: "/images/clients/jn-civils.webp" },
+  { name: "STL", logo: "/images/clients/stl.webp" },
+  { name: "Unified Infra", logo: "/images/clients/united-infra.webp" },
+  { name: "PJS", logo: "/images/clients/pjs.webp" },
+  { name: "Nano", logo: "/images/clients/nano.webp" },
+  { name: "CellEx", logo: "/images/clients/cellex.webp" },
+  { name: "Core Line Fibre", logo: "/images/clients/cf.webp" },
+  { name: "FT Surfacing", logo: "/images/clients/ft-surfacing.webp" },
+  { name: "BWP Consultants", logo: "/images/clients/bwp.webp" },
 ];
 
 const stats = [
@@ -264,13 +282,16 @@ export function HomePage() {
               </span>
             </div>
           </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-[var(--color-border)]">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-px bg-[var(--color-border)]">
             {clients.map((client, i) => (
-              <FadeIn key={client} delay={i * 80}>
-                <div className="logo-tile bg-white h-24 flex items-center justify-center">
-                  <span className="text-[var(--color-dark-blue)]/70 text-lg font-semibold tracking-tight">
-                    {client}
-                  </span>
+              <FadeIn key={client.name} delay={i * 40}>
+                <div className="logo-tile bg-white h-24 flex items-center justify-center px-6">
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className="max-h-10 max-w-full w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+                    loading="lazy"
+                  />
                 </div>
               </FadeIn>
             ))}

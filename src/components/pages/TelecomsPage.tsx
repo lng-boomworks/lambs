@@ -9,7 +9,7 @@ import { PageShell } from "../sections/PageShell";
 import { ServiceList } from "../sections/ServiceList";
 import { CTASection } from "../sections/CTASection";
 
-const caseImage = "https://picsum.photos/seed/lambs-fujitsu-motif/1600/1200";
+const caseImage = "/images/utilities/job-06.webp";
 
 const services = [
   { number: "01", title: "FTTH / FTTP rollout", description: "Full-fibre to the home and premises. Design-and-build, surveys, splicing and commissioning for national operators." },

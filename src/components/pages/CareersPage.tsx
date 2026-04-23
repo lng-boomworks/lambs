@@ -23,9 +23,9 @@ const vacancies = [
 ];
 
 const lifeImages = [
-  "https://picsum.photos/seed/life-1/900/600",
-  "https://picsum.photos/seed/life-2/900/600",
-  "https://picsum.photos/seed/life-3/900/600",
+  "/images/hero/careers-crew.webp",
+  "/images/utilities/job-05.webp",
+  "/images/utilities/job-08.webp",
 ];
 
 export function CareersPage() {
@@ -36,6 +36,8 @@ export function CareersPage() {
         eyebrow="Careers at Lambs Group"
         heading="Work with people who stick around."
         lede="Directly employed operatives since 1988. If you want proper jobs, real trades, and to actually know who your boss is, we'd like to hear from you."
+        image="/images/hero/careers-crew.webp"
+        imageAlt="Lambs Group directly employed crew"
         sectionIndex="— / Careers"
       />
 

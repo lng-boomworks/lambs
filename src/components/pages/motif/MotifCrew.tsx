@@ -3,7 +3,6 @@ import { FadeIn } from "../../FadeIn";
 import { RevealImage } from "../../RevealImage";
 
 const crew = [
-  { name: "Ian Gee", role: "Team Manager", image: "https://picsum.photos/seed/motif-ian/500/700" },
   { name: "Sam B.", role: "Lead Jointer", image: "https://picsum.photos/seed/motif-sam/500/700" },
   { name: "Chris H.", role: "Splicer", image: "https://picsum.photos/seed/motif-chris/500/700" },
   { name: "Danny M.", role: "Drilling Op.", image: "https://picsum.photos/seed/motif-danny/500/700" },

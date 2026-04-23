@@ -36,9 +36,13 @@ const linkGroups = [
   },
 ];
 
-const accreditations = [
-  "ISO 9001", "ISO 14001", "ISO 45001", "CHAS", "Constructionline", "NRSWA",
+const isoBadges = [
+  { label: "ISO 9001", src: "/images/accreditations/iso-9001.webp" },
+  { label: "ISO 14001", src: "/images/accreditations/iso-14001.webp" },
+  { label: "ISO 45001", src: "/images/accreditations/iso-45001.webp" },
 ];
+
+const textBadges = ["CHAS", "Constructionline", "NRSWA"];
 
 export function Footer() {
   return (
@@ -46,8 +50,17 @@ export function Footer() {
       <div className="border-b border-white/10">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-10 flex flex-wrap items-center justify-between gap-6">
           <span className="eyebrow eyebrow-dark">Accredited &amp; Certified</span>
-          <div className="flex flex-wrap gap-x-6 gap-y-3">
-            {accreditations.map((a) => (
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
+            {isoBadges.map((b) => (
+              <img
+                key={b.label}
+                src={b.src}
+                alt={b.label}
+                className="h-14 w-auto object-contain brightness-0 invert opacity-75 hover:opacity-100 transition-opacity"
+                loading="lazy"
+              />
+            ))}
+            {textBadges.map((a) => (
               <span
                 key={a}
                 className="text-[11px] uppercase tracking-[0.18em] text-white/60 border border-white/20 px-3 py-2 font-medium"

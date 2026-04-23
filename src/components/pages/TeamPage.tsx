@@ -6,16 +6,12 @@ import { PageHero } from "../sections/PageHero";
 import { CTASection } from "../sections/CTASection";
 
 const leadership = [
-  { name: "Simon Lamb", role: "Managing Director", bio: "Founded the business in 1988. Still walks sites. Still picks up the phone.", image: "https://picsum.photos/seed/lambs-simon/900/1200" },
-  { name: "Amanda Lamb", role: "Director", bio: "Runs the business alongside Simon. Finance, HR, and keeping the wheels on.", image: "https://picsum.photos/seed/lambs-amanda/900/1200" },
-  { name: "Dave Edmonds", role: "Operations Manager", bio: "Runs day-to-day delivery across every live programme. Former site foreman.", image: "https://picsum.photos/seed/lambs-dave/900/1200" },
-  { name: "Tony Potts", role: "Health & Safety", bio: "NEBOSH-accredited. Keeps every site compliant, tidy and accident-free.", image: "https://picsum.photos/seed/lambs-tony/900/1200" },
-  { name: "Brian Saidie", role: "Health & Safety", bio: "Audits, toolbox talks and close-out reporting across the operational crew.", image: "https://picsum.photos/seed/lambs-brian/900/1200" },
-  { name: "Ian Gee", role: "Team Manager", bio: "Front-line team lead on the Virgin Media Motif programme.", image: "https://picsum.photos/seed/lambs-ian/900/1200" },
+  { name: "Simon Lamb", role: "Managing Director", bio: "Founded the business in 1988. Still walks sites. Still picks up the phone.", image: "/images/team/simon-lamb.webp" },
+  { name: "Amanda Lamb", role: "Director", bio: "Runs the business alongside Simon. Finance, HR, and keeping the wheels on.", image: "/images/team/amanda-lamb.webp" },
+  { name: "Ray Pennington", role: "Operations Director", bio: "Leads operational delivery across every live programme — telecoms, civils, utilities and domestic works.", image: "/images/team/ray-pennington.webp" },
 ];
 
 const motifCrew = [
-  { name: "Ian Gee", role: "Team Manager", image: "https://picsum.photos/seed/lambs-ian/600/800" },
   { name: "Sam B.", role: "Lead Jointer", image: "https://picsum.photos/seed/motif-sam/600/800" },
   { name: "Chris H.", role: "Splicer", image: "https://picsum.photos/seed/motif-chris/600/800" },
   { name: "Danny M.", role: "Drilling Op.", image: "https://picsum.photos/seed/motif-danny/600/800" },
