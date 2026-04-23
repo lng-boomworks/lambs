@@ -510,4 +510,16 @@
   .strat-peel__layer { transform: translateX(0) !important; transition: none !important; }
   .strat-peel__tick { transform: scaleX(1) !important; transition: none !important; }
   .flow-lines__pulse { display: none !important; }
+  .uk-map__pulse { animation: none !important; opacity: 0.25 !important; }
+}
+
+/* --- UK map pulse --- */
+.uk-map__pulse {
+  animation: ukMapPulse 3s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+@keyframes ukMapPulse {
+  0%, 100% { transform: scale(1); opacity: 0.18; }
+  50% { transform: scale(1.6); opacity: 0.35; }
 }
