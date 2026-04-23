@@ -1,0 +1,26 @@
+---
+import Base from "../layouts/Base.astro";
+import { PageShell } from "../components/sections/PageShell";
+import { Button } from "../components/Button";
+---
+<Base title="Page not found — Lambs Group" description="The page you were looking for isn't here.">
+  <PageShell client:load>
+    <section class="bg-white min-h-[80svh] flex items-center">
+      <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-20 w-full">
+        <div class="max-w-2xl">
+          <span class="eyebrow mb-6">404</span>
+          <h1 class="text-[var(--color-dark-blue)] text-[48px] lg:text-[80px] font-semibold leading-[1.05] mt-4 mb-6">
+            Page not found.
+          </h1>
+          <p class="text-[var(--color-charcoal)] text-lg leading-relaxed mb-10 max-w-md">
+            Looks like this page moved, or never existed. Head back to the home page or tell us what you were after.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <Button href="/" variant="primary" size="lg" client:load>Back to home</Button>
+            <Button href="/contact" variant="secondary" size="lg" arrow="up-right" client:load>Get in touch</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </PageShell>
+</Base>

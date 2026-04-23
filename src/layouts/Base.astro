@@ -13,7 +13,7 @@ interface Props {
 
 const {
   title,
-  description = 'Lambs UK — Building Britain\'s infrastructure since 1988. Telecoms, civil works and utilities contractor based in Warrington, operating UK-wide.',
+  description = 'Lambs Group — Infrastructure services across the UK since 1988. Telecoms, civil works, utilities and domestic works. Family-run, directly employed workforce, compliance-first.',
   ogImage = '/images/og-default.jpg',
   type = 'website',
   noindex = false,
@@ -40,7 +40,7 @@ const ogImageURL = new URL(ogImage, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
-    <meta property="og:site_name" content="Lambs UK" />
+    <meta property="og:site_name" content="Lambs Group" />
     <meta property="og:locale" content="en_GB" />
 
     <!-- Twitter / X -->
@@ -59,25 +59,24 @@ const ogImageURL = new URL(ogImage, Astro.site);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- JSON-LD: LocalBusiness -->
+    <!-- JSON-LD: LocalBusiness + Organization -->
     <script is:inline type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "GeneralContractor",
+      "@type": "LocalBusiness",
       "@id": "https://lambsgroup.co.uk/#business",
-      "name": "Lambs UK",
-      "alternateName": "S Lamb Construction",
-      "description": "Infrastructure contractor specialising in telecoms, civil works and utilities. Family-run since 1988, based in Warrington, operating UK-wide.",
+      "name": "Lambs Group",
+      "alternateName": ["Lambs UK", "S Lamb Construction"],
+      "description": "Family-run UK infrastructure contractor delivering telecoms, civil works, utilities and domestic works with directly employed crews since 1988.",
       "url": "https://lambsgroup.co.uk",
-      "telephone": "+441925810991",
+      "logo": "https://lambsgroup.co.uk/images/logo-lambs-group-colour.svg",
       "foundingDate": "1988",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Tatton Court",
-        "addressLocality": "Warrington",
-        "addressRegion": "Cheshire",
-        "addressCountry": "GB"
-      },
-      "areaServed": "GB"
+      "telephone": "+441925810991",
+      "email": "info@lambsgroup.co.uk",
+      "address": [
+        { "@type": "PostalAddress", "streetAddress": "Tatton Court, Tatton Road", "addressLocality": "Warrington", "addressCountry": "GB" },
+        { "@type": "PostalAddress", "streetAddress": "Prestwood Court", "addressLocality": "Warrington", "addressCountry": "GB" }
+      ],
+      "areaServed": "United Kingdom"
     })} />
 
     <slot name="head" />

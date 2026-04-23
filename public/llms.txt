@@ -1,21 +1,38 @@
-# Your Business Name
+# Lambs Group
 
-> Your business tagline.
+## About
+Lambs Group is a family-run UK infrastructure contractor, established 1988, based in Warrington. We deliver telecoms, civil works, utilities and domestic private works (driveways) across the UK, using directly employed operatives rather than subcontractors.
 
-Description of your business and what you do.
+## Sectors
+- Telecoms: FTTH/FTTP rollout, splicing, directional drilling, cabinet installs
+- Civil Works: excavation, reinstatement, road works, footways, drainage, ducting
+- Utilities: water, gas, electricity supply works — ducting, jointing, mains laying
+- Private Works (domestic): tarmac, resin driveways, block paving, patios, drainage, dropped kerbs
 
-## Services
-- Service One
-- Service Two
-- Service Three
+## Flagship programme
+Virgin Media Motif full-fibre rollout, delivered in partnership with Fujitsu. ~2,500 jobs per week, ~10,000 homes connected per month.
 
 ## Contact
-- Phone: 01234 567890
-- Email: hello@example.com
-- Address: Your Town, County, Postcode
+- Head Office: Tatton Court, Tatton Road, Warrington
+- Recruitment: Prestwood Court, Warrington
+- Phone: 01925 810 991 (main) · 01925 850 982 (recruitment)
+- Email: info@lambsgroup.co.uk
+- Website: https://lambsgroup.co.uk
 
 ## Key pages
-- Home: https://example.com/
-- Services: https://example.com/services
-- About: https://example.com/about
-- Contact: https://example.com/contact
+- Home: https://lambsgroup.co.uk/
+- Telecoms: https://lambsgroup.co.uk/telecoms
+- Civil Works: https://lambsgroup.co.uk/civil-works
+- Utilities: https://lambsgroup.co.uk/utilities
+- Private Works: https://lambsgroup.co.uk/private-works
+- About: https://lambsgroup.co.uk/about
+- Team: https://lambsgroup.co.uk/team
+- Our Work: https://lambsgroup.co.uk/work
+- Motif microsite: https://lambsgroup.co.uk/work/motif
+- How We Deliver: https://lambsgroup.co.uk/how-we-deliver
+- Live Map: https://lambsgroup.co.uk/map
+- Careers: https://lambsgroup.co.uk/careers
+- Contact: https://lambsgroup.co.uk/contact
+
+## Accreditations
+NRSWA, CSCS, NEBOSH, ECS, ISO 9001, ISO 14001, ISO 45001, CHAS, Constructionline, WIRS, GIRS, NERS (specific accreditations to be confirmed with client)
