@@ -4,16 +4,15 @@ import { Footer } from "../Footer";
 
 interface PageShellProps {
   children: ReactNode;
+  /** Set when the page's hero has a dark background so the navbar
+   *  renders in on-dark mode before the user scrolls. */
+  darkHero?: boolean;
 }
 
-/**
- * PageShell wraps page content with the Navbar, main slot and Footer.
- * Using a single client island avoids multiple hydration boundaries.
- */
-export function PageShell({ children }: PageShellProps) {
+export function PageShell({ children, darkHero = false }: PageShellProps) {
   return (
     <>
-      <Navbar />
+      <Navbar darkHero={darkHero} />
       <main className="flex-1">{children}</main>
       <Footer />
     </>

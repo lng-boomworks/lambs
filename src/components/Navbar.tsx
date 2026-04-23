@@ -13,7 +13,11 @@ const topLinks = [
   { name: "Careers", path: "/careers" },
 ];
 
-export function Navbar() {
+interface NavbarProps {
+  darkHero?: boolean;
+}
+
+export function Navbar({ darkHero = false }: NavbarProps) {
   const [location, setLocation] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -29,7 +33,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const onDark = isScrolled;
+  const onDark = isScrolled || darkHero;
 
   return (
     <header

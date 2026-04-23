@@ -9,7 +9,7 @@ import { MotifQC } from "./motif/MotifQC";
 
 export function MotifPage() {
   return (
-    <PageShell>
+    <PageShell darkHero>
       <MotifHero />
       <MotifProgramme />
       <MotifNumbers />

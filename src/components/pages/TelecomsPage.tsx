@@ -24,7 +24,7 @@ const telecomsAccreditations = ["NRSWA", "Streetworks", "CSCS", "NEBOSH", "ECS"]
 
 export function TelecomsPage() {
   return (
-    <PageShell>
+    <PageShell darkHero>
       <SectorIndex label="01 / TELECOMS" />
 
       <section className="relative bg-[var(--color-dark-blue)] overflow-hidden min-h-[90svh] flex items-end">
