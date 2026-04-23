@@ -57,14 +57,18 @@ export function Navbar({ darkHero = false }: NavbarProps) {
             >
               <button
                 type="button"
-                className={`nav-link inline-flex items-center gap-1.5 bg-transparent border-0 p-0 m-0 font-inherit text-[12px] uppercase tracking-[0.14em] font-medium cursor-pointer transition-colors duration-300 ${
+                className={`nav-link inline-flex flex-row items-center gap-2 bg-transparent border-0 p-0 m-0 text-[12px] uppercase tracking-[0.14em] font-medium cursor-pointer transition-colors duration-300 ${
                   onDark ? "text-white/80 hover:text-white" : "text-[var(--color-dark-blue)] hover:text-[var(--color-cyan)]"
                 }`}
                 aria-expanded={isSectorsOpen}
                 aria-haspopup="true"
               >
-                Sectors
-                <ChevronDown className="w-3.5 h-3.5 -mr-0.5" strokeWidth={2} />
+                <span>Sectors</span>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-300 ${isSectorsOpen ? "rotate-180" : ""}`}
+                  strokeWidth={2}
+                  aria-hidden="true"
+                />
               </button>
               {isSectorsOpen && <MegaMenu onClose={() => setIsSectorsOpen(false)} />}
             </li>
