@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { withBase } from "../../utils/paths";
 
 interface BeforeAfterProps {
@@ -58,17 +58,20 @@ export function BeforeAfter({
     setPos(p);
   };
 
+  const sliderStyle = { "--before-after-pos": `${pos}%` } as CSSProperties;
+
   return (
     <div
       ref={ref}
       className={`before-after ${className}`}
+      style={sliderStyle}
       onMouseMove={(e) => { if (dragging) updateFromClientX(e.clientX); }}
       onMouseUp={() => setDragging(false)}
       onMouseLeave={() => setDragging(false)}
       onTouchMove={(e) => { if (e.touches[0]) updateFromClientX(e.touches[0].clientX); }}
     >
       <img src={withBase(afterSrc)} alt={afterAlt} className="before-after__img" />
-      <div className="before-after__before" style={{ width: `${pos}%` }}>
+      <div className="before-after__before">
         <img src={withBase(beforeSrc)} alt={beforeAlt} className="before-after__img" />
       </div>
       <div

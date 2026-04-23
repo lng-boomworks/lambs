@@ -43,6 +43,18 @@ export function PrivateWorksPage() {
                 beforeAlt="Driveway before - worn tarmac"
                 afterAlt="Driveway after - new tarmac finish"
               />
+              <FadeIn delay={240}>
+                <div className="mt-5 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-6">
+                  <span className="text-[11px] uppercase tracking-[0.18em] text-[var(--color-cyan)] font-semibold whitespace-nowrap pt-0.5">
+                    Before · After
+                  </span>
+                  <p className="text-[var(--color-charcoal)] text-[14px] leading-relaxed max-w-xl">
+                    Drag the slider left and right to see the transformation. A tired tarmac drive
+                    taken back to base, relaid and finished by the Lambs crew in a single day -
+                    the same crews that run our commercial programmes.
+                  </p>
+                </div>
+              </FadeIn>
             </div>
           </div>
         </div>
