@@ -1,58 +1,32 @@
 import { FadeIn } from "../FadeIn";
-
-interface Stat {
-  value: string;
-  label: string;
-  suffix?: string;
-}
+import { NumberTicker } from "../NumberTicker";
 
 interface StatStripProps {
-  stats?: Stat[];
-  dark?: boolean;
+  stats?: { value: number; suffix?: string; label: string }[];
+  onDark?: boolean;
 }
 
-const defaultStats: Stat[] = [
-  { value: "37", suffix: "+", label: "Years building Britain" },
-  { value: "100", suffix: "+", label: "Direct-employed operatives" },
-  { value: "2,500", label: "Jobs completed per week" },
-  { value: "10,000", label: "Homes connected per month" },
+const defaultStats = [
+  { value: 100, suffix: "+", label: "Directly employed" },
+  { value: 30, suffix: "", label: "Van audits / month" },
+  { value: 2500, suffix: "+", label: "Motif jobs / week" },
+  { value: 37, suffix: " yrs", label: "Est. 1988" },
 ];
 
-export function StatStrip({ stats = defaultStats, dark = false }: StatStripProps) {
+export function StatStrip({ stats = defaultStats, onDark = false }: StatStripProps) {
   return (
     <section
-      className={`relative ${
-        dark ? "bg-[var(--color-ink)] text-white" : "bg-[var(--color-cream)]"
-      }`}
+      className={`py-16 border-y ${onDark ? "bg-[var(--color-dark-blue)] border-white/10" : "bg-[var(--color-light-grey)] border-[var(--color-border)]"}`}
     >
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-16 lg:py-24">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-black/10">
-          {stats.map((stat, i) => (
-            <FadeIn
-              key={stat.label}
-              delay={i * 120}
-              className={`p-8 lg:p-10 ${
-                dark ? "bg-[var(--color-ink)]" : "bg-[var(--color-cream)]"
-              }`}
-            >
-              <div className="flex flex-col gap-3">
-                <div
-                  className={`font-display text-[56px] lg:text-[80px] leading-none font-semibold tracking-[-0.04em] ${
-                    dark ? "text-white" : "text-[var(--color-ink)]"
-                  }`}
-                >
-                  {stat.value}
-                  {stat.suffix && (
-                    <span className="text-[var(--color-hivis)]">{stat.suffix}</span>
-                  )}
-                </div>
-                <div
-                  className={`font-mono text-[11px] uppercase tracking-[0.14em] ${
-                    dark ? "text-white/60" : "text-[var(--color-concrete)]"
-                  }`}
-                >
-                  {stat.label}
-                </div>
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+          {stats.map((s, i) => (
+            <FadeIn key={s.label} delay={i * 100}>
+              <div className={`text-[48px] lg:text-[64px] leading-none font-semibold ${onDark ? "text-white" : "text-[var(--color-dark-blue)]"}`}>
+                <NumberTicker value={s.value} suffix={s.suffix} />
+              </div>
+              <div className={`text-[11px] uppercase tracking-widest mt-3 font-medium ${onDark ? "text-white/70" : "text-[var(--color-mid-blue)]"}`}>
+                {s.label}
               </div>
             </FadeIn>
           ))}
