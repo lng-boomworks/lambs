@@ -183,7 +183,7 @@ export function HomePage() {
               return (
                 <FadeIn key={sector.title} delay={i * 160}>
                   <a
-                    href={sector.href}
+                    href={withBase(sector.href)}
                     className="group relative block bg-white border border-[var(--color-border-strong)] p-8 lg:p-10 h-full transition-all duration-500 hover:border-[var(--color-dark-blue)] hover:-translate-y-1"
                   >
                     <div className="flex items-start justify-between mb-12">
@@ -205,7 +205,7 @@ export function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <FadeIn className="md:col-span-3">
               <a
-                href={domesticSector.href}
+                href={withBase(domesticSector.href)}
                 className="group relative block bg-[var(--color-light-grey)] border border-[var(--color-border-strong)] p-8 lg:p-10 transition-all duration-500 hover:border-[var(--color-dark-blue)] hover:-translate-y-1"
               >
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
