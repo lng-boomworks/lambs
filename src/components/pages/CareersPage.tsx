@@ -8,6 +8,7 @@ import { PageHero } from "../sections/PageHero";
 import { CTASection } from "../sections/CTASection";
 import { ArrowUpRight } from "lucide-react";
 import { withBase } from "../../utils/paths";
+import { VACANCIES } from "../../data/vacancies";
 
 const reasons = [
   { number: "01", title: "Directly employed", body: "PAYE contracts, real training, career progression and long tenures. Not agency, not sub-sub." },
@@ -16,12 +17,7 @@ const reasons = [
   { number: "04", title: "Family values", body: "Family-run since 1988. We look after our people because we know their names." },
 ];
 
-const vacancies = [
-  { title: "Fibre Jointer", location: "North West", type: "Full-time · PAYE", days: 4 },
-  { title: "NRSWA Operative", location: "North West", type: "Full-time · PAYE", days: 7 },
-  { title: "Groundworker", location: "UK-wide", type: "Full-time · PAYE", days: 2 },
-  { title: "Site Supervisor", location: "Warrington HQ", type: "Full-time · PAYE", days: 14 },
-];
+const vacancies = VACANCIES;
 
 const lifeImages = [
   "/images/hero/careers-crew.webp",
@@ -86,8 +82,8 @@ export function CareersPage() {
 
           <ul className="border-t border-[var(--color-border-strong)]">
             {vacancies.map((v, i) => (
-              <FadeIn key={v.title} as="span" delay={i * 100} className="block border-b border-[var(--color-border-strong)]">
-                <a href={withBase("/contact")} className="group grid grid-cols-12 items-center gap-6 py-8 lg:py-10 hover:bg-white transition-colors duration-500 px-2">
+              <FadeIn key={v.slug} as="span" delay={i * 100} className="block border-b border-[var(--color-border-strong)]">
+                <a href={withBase(`/careers/${v.slug}`)} className="group grid grid-cols-12 items-center gap-6 py-8 lg:py-10 hover:bg-white transition-colors duration-500 px-2">
                   <span className="col-span-12 md:col-span-4 text-[var(--color-dark-blue)] text-[22px] lg:text-[28px] font-semibold">{v.title}</span>
                   <span className="col-span-6 md:col-span-3 text-[11px] uppercase tracking-widest text-[var(--color-mid-blue)] font-medium">{v.location}</span>
                   <span className="col-span-6 md:col-span-3 text-[11px] uppercase tracking-widest text-[var(--color-mid-blue)] font-medium">{v.type}</span>

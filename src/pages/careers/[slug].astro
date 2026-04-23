@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import { JobPage } from '../../components/pages/JobPage';
+import { VACANCIES } from '../../data/vacancies';
+
+export function getStaticPaths() {
+  return VACANCIES.map((v) => ({
+    params: { slug: v.slug },
+    props: { vacancy: v },
+  }));
+}
+
+const { vacancy } = Astro.props;
+---
+
+<Base
+  title={`${vacancy.title} — Careers at Lambs UK`}
+  description={vacancy.summary}
+>
+  <JobPage vacancy={vacancy} client:load />
+</Base>
