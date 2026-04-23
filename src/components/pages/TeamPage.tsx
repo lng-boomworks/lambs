@@ -5,43 +5,22 @@ import { PageShell } from "../sections/PageShell";
 import { PageHero } from "../sections/PageHero";
 import { CTASection } from "../sections/CTASection";
 
-const team = [
-  {
-    name: "Simon Lamb",
-    role: "Managing Director",
-    bio: "Founded the business in 1988. Still walks sites. Still picks up the phone.",
-    image: "https://picsum.photos/seed/lambs-simon/900/1200",
-  },
-  {
-    name: "Amanda Lamb",
-    role: "Director",
-    bio: "Runs the business alongside Simon. Finance, HR and the things that keep the wheels on.",
-    image: "https://picsum.photos/seed/lambs-amanda/900/1200",
-  },
-  {
-    name: "Dave Edmonds",
-    role: "Operations Manager",
-    bio: "Runs day-to-day delivery across every live programme. Former site foreman. Knows every operative by name.",
-    image: "https://picsum.photos/seed/lambs-dave/900/1200",
-  },
-  {
-    name: "Tony Potts",
-    role: "Health & Safety",
-    bio: "NEBOSH-accredited. Keeps every site legal, tidy and accident-free.",
-    image: "https://picsum.photos/seed/lambs-tony/900/1200",
-  },
-  {
-    name: "Brian Saidie",
-    role: "Health & Safety",
-    bio: "Audits, toolbox talks and close-out reporting across the operational crew.",
-    image: "https://picsum.photos/seed/lambs-brian/900/1200",
-  },
-  {
-    name: "Ian Gee",
-    role: "Team Manager",
-    bio: "Front-line team lead on the Virgin Media Motif programme — 2,500 jobs a week, week in, week out.",
-    image: "https://picsum.photos/seed/lambs-ian/900/1200",
-  },
+const leadership = [
+  { name: "Simon Lamb", role: "Managing Director", bio: "Founded the business in 1988. Still walks sites. Still picks up the phone.", image: "https://picsum.photos/seed/lambs-simon/900/1200" },
+  { name: "Amanda Lamb", role: "Director", bio: "Runs the business alongside Simon. Finance, HR, and keeping the wheels on.", image: "https://picsum.photos/seed/lambs-amanda/900/1200" },
+  { name: "Dave Edmonds", role: "Operations Manager", bio: "Runs day-to-day delivery across every live programme. Former site foreman.", image: "https://picsum.photos/seed/lambs-dave/900/1200" },
+  { name: "Tony Potts", role: "Health & Safety", bio: "NEBOSH-accredited. Keeps every site compliant, tidy and accident-free.", image: "https://picsum.photos/seed/lambs-tony/900/1200" },
+  { name: "Brian Saidie", role: "Health & Safety", bio: "Audits, toolbox talks and close-out reporting across the operational crew.", image: "https://picsum.photos/seed/lambs-brian/900/1200" },
+  { name: "Ian Gee", role: "Team Manager", bio: "Front-line team lead on the Virgin Media Motif programme.", image: "https://picsum.photos/seed/lambs-ian/900/1200" },
+];
+
+const motifCrew = [
+  { name: "Ian Gee", role: "Team Manager", image: "https://picsum.photos/seed/lambs-ian/600/800" },
+  { name: "Sam B.", role: "Lead Jointer", image: "https://picsum.photos/seed/motif-sam/600/800" },
+  { name: "Chris H.", role: "Splicer", image: "https://picsum.photos/seed/motif-chris/600/800" },
+  { name: "Danny M.", role: "Drilling Op.", image: "https://picsum.photos/seed/motif-danny/600/800" },
+  { name: "Paul R.", role: "Ground Crew", image: "https://picsum.photos/seed/motif-paul/600/800" },
+  { name: "Lee T.", role: "QC Inspector", image: "https://picsum.photos/seed/motif-lee/600/800" },
 ];
 
 export function TeamPage() {
@@ -50,44 +29,33 @@ export function TeamPage() {
       <PageHero
         eyebrow="The team"
         heading="People you'll actually talk to."
-        lede="Lambs UK is built on long tenures. The directors founded the business. The managers have worked here for decades. The operatives are directly employed. That's the whole trick."
+        lede="Lambs Group is built on long tenures. The directors founded the business. The managers have worked here for decades. The operatives are directly employed."
         sectionIndex="— / Team"
       />
 
-      <section className="bg-[var(--color-warm-white)] py-24 lg:py-36">
+      <section className="bg-white py-24 lg:py-36">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
             <div className="lg:col-span-4">
-              <FadeIn>
-                <span className="eyebrow">Directors & managers</span>
-              </FadeIn>
+              <FadeIn><span className="eyebrow">Directors &amp; managers</span></FadeIn>
             </div>
             <div className="lg:col-span-8">
-              <AnimatedHeading as="h2" className="max-w-3xl">
-                The people who run the programmes.
-              </AnimatedHeading>
+              <AnimatedHeading as="h2" className="max-w-3xl">The people who run the programmes.</AnimatedHeading>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {team.map((person, i) => (
+            {leadership.map((person, i) => (
               <FadeIn key={person.name} delay={i * 120}>
                 <article className="group">
-                  <RevealImage
-                    src={person.image}
-                    alt={person.name}
-                    aspect="aspect-[3/4]"
-                    className="mb-6"
-                  />
-                  <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-concrete)] mb-2">
+                  <RevealImage src={person.image} alt={person.name} aspect="aspect-[3/4]" className="mb-6" />
+                  <div className="text-[11px] uppercase tracking-[0.18em] text-[var(--color-mid-blue)] mb-2 font-medium border-b border-[var(--color-cyan)] pb-1 inline-block">
                     {person.role}
                   </div>
-                  <h3 className="font-display text-[26px] lg:text-[30px] font-semibold mb-3 leading-tight">
+                  <h3 className="text-[var(--color-dark-blue)] text-[24px] lg:text-[28px] font-semibold mb-3 leading-tight mt-1">
                     {person.name}
                   </h3>
-                  <p className="text-[var(--color-concrete)] text-[15px] leading-relaxed">
-                    {person.bio}
-                  </p>
+                  <p className="text-[var(--color-charcoal)] text-[15px] leading-relaxed">{person.bio}</p>
                 </article>
               </FadeIn>
             ))}
@@ -95,12 +63,36 @@ export function TeamPage() {
         </div>
       </section>
 
-      <CTASection
-        eyebrow="Join the team"
-        heading="We're always looking for good operatives."
-        primaryLabel="See vacancies"
-        primaryHref="/careers"
-      />
+      <section className="bg-[var(--color-light-grey)] py-24 lg:py-36">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12">
+            <div className="lg:col-span-4">
+              <FadeIn><span className="eyebrow">Flagship crew</span></FadeIn>
+            </div>
+            <div className="lg:col-span-8">
+              <AnimatedHeading as="h2" className="max-w-3xl">On the Motif crew.</AnimatedHeading>
+              <FadeIn delay={200}>
+                <p className="text-[var(--color-charcoal)] text-lg leading-relaxed mt-6 max-w-2xl">
+                  A selection of the team delivering ~2,500 jobs per week on the Virgin Media Motif programme. Same crew, same van, same name you'll see on your street.
+                </p>
+              </FadeIn>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {motifCrew.map((p, i) => (
+              <FadeIn key={p.name} delay={i * 70}>
+                <article>
+                  <RevealImage src={p.image} alt={p.name} aspect="aspect-[3/4]" className="mb-3" />
+                  <h4 className="text-[var(--color-dark-blue)] font-semibold text-[14px]">{p.name}</h4>
+                  <p className="text-[var(--color-mid-blue)] text-[11px] uppercase tracking-widest mt-1 font-medium">{p.role}</p>
+                </article>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CTASection eyebrow="Join the team" heading="We're always looking for good operatives." primaryLabel="See vacancies" primaryHref="/careers" />
     </PageShell>
   );
 }
