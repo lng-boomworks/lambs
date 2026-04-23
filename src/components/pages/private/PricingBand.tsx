@@ -1,7 +1,7 @@
 import { FadeIn } from "../../FadeIn";
 import { AnimatedHeading } from "../../AnimatedHeading";
 
-// NOTE: pricing bands are indicative — to confirm with client before launch
+// NOTE: pricing bands are indicative - to confirm with client before launch
 const pricing = [
   { finish: "Tarmac", from: "£55", unit: "per m²" },
   { finish: "Resin-bound", from: "£90", unit: "per m²" },

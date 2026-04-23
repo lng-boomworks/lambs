@@ -14,8 +14,8 @@ export function MotifProgramme() {
             </AnimatedHeading>
             <FadeIn delay={200}>
               <div className="space-y-5 text-[var(--color-charcoal)] text-lg leading-relaxed max-w-md">
-                <p>Motif is Virgin Media's national full-fibre rollout, built in partnership with Fujitsu. Lambs Group is one of Fujitsu's trusted delivery partners — and runs one of the largest operational crews on the programme.</p>
-                <p>Our scope covers survey, mole ploughing, directional drilling, duct installation, blowing, splicing, testing and reinstatement — end-to-end delivery by directly employed operatives.</p>
+                <p>Motif is Virgin Media's national full-fibre rollout, built in partnership with Fujitsu. Lambs Group is one of Fujitsu's trusted delivery partners - and runs one of the largest operational crews on the programme.</p>
+                <p>Our scope covers survey, mole ploughing, directional drilling, duct installation, blowing, splicing, testing and reinstatement - end-to-end delivery by directly employed operatives.</p>
               </div>
             </FadeIn>
           </div>

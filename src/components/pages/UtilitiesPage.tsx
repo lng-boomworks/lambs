@@ -12,7 +12,7 @@ const services = [
   { number: "03", title: "Electricity supply", description: "LV and HV ducting routes, service cabinets and connection works coordinated with DNO programmes." },
   { number: "04", title: "Ducting", description: "Multi-utility ducting installation, marker tape, warning mesh and chamber setting-out." },
   { number: "05", title: "Jointing", description: "Cable and pipe jointing delivered to operator standards, including LV jointing and pressure testing." },
-  { number: "06", title: "Mains laying & connections", description: "From bulk mains to final service connections — one crew, one programme, one point of contact." },
+  { number: "06", title: "Mains laying & connections", description: "From bulk mains to final service connections - one crew, one programme, one point of contact." },
 ];
 
 const utilitiesAccreditations = ["WIRS", "GIRS", "NERS", "NRSWA", "CHAS"];
@@ -27,11 +27,11 @@ export function UtilitiesPage() {
         <div className="relative max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
           <FadeIn><span className="eyebrow mb-6">Sector 03 · Utilities</span></FadeIn>
           <AnimatedHeading as="h1" className="max-w-4xl mt-4 mb-8" stagger={40}>
-            Water, gas, power — laid and connected.
+            Water, gas, power - laid and connected.
           </AnimatedHeading>
           <FadeIn delay={260}>
             <p className="text-[var(--color-charcoal)] text-lg md:text-xl leading-relaxed max-w-3xl mb-12">
-              Utility supply works for housing, industrial and local authority schemes across the UK. From new mains to the final service connection — one accredited crew, one programme, one point of contact.
+              Utility supply works for housing, industrial and local authority schemes across the UK. From new mains to the final service connection - one accredited crew, one programme, one point of contact.
             </p>
           </FadeIn>
           <div className="h-[280px] lg:h-[340px] border-t border-b border-[var(--color-border)]">
@@ -58,7 +58,7 @@ export function UtilitiesPage() {
                 </h2>
               </div>
               <p className="text-[var(--color-mid-blue)] text-sm max-w-sm uppercase tracking-wider font-medium">
-                Placeholder list — to confirm with client
+                Placeholder list - to confirm with client
               </p>
             </div>
           </FadeIn>

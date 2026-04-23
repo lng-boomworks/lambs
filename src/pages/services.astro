@@ -1,5 +1,5 @@
 ---
-// Legacy /services route — redirects visitors to the sector index on /telecoms.
+// Legacy /services route - redirects visitors to the sector index on /telecoms.
 // The new navigation uses dedicated /telecoms, /civil-works and /utilities pages.
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 const target = `${baseUrl}/telecoms`;
@@ -10,7 +10,7 @@ const target = `${baseUrl}/telecoms`;
     <meta charset="utf-8" />
     <meta http-equiv="refresh" content={`0; url=${target}`} />
     <link rel="canonical" href={target} />
-    <title>Lambs UK — Services</title>
+    <title>Lambs UK - Services</title>
   </head>
   <body>
     <p>Redirecting to <a href={target}>our telecoms sector page</a>.</p>

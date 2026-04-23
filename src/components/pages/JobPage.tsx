@@ -107,10 +107,10 @@ export function JobPage({ vacancy }: JobPageProps) {
                 {status === "done" || status === "preview" ? (
                   <FadeIn>
                     <div className="bg-[var(--color-dark-blue)] text-white p-10">
-                      <h3 className="text-2xl font-semibold mb-3">Thanks — we've got it.</h3>
+                      <h3 className="text-2xl font-semibold mb-3">Thanks - we've got it.</h3>
                       <p className="text-white/80">
                         {status === "preview"
-                          ? "Preview mode — the form handler isn't configured yet, so this submission wasn't sent. In production we'd be in touch within one working day."
+                          ? "Preview mode - the form handler isn't configured yet, so this submission wasn't sent. In production we'd be in touch within one working day."
                           : "We'll be in touch within one working day."}
                       </p>
                     </div>
@@ -124,7 +124,7 @@ export function JobPage({ vacancy }: JobPageProps) {
                     >
                       <input type="hidden" name="role" value={vacancy.title} />
                       <input type="hidden" name="role_slug" value={vacancy.slug} />
-                      {/* Honeypot — real users never fill this. */}
+                      {/* Honeypot - real users never fill this. */}
                       <input
                         type="text"
                         name="website"
@@ -144,7 +144,7 @@ export function JobPage({ vacancy }: JobPageProps) {
                       <TextareaField
                         label="Cover note"
                         name="message"
-                        placeholder="Briefly — relevant tickets, current notice period, anything you want us to know."
+                        placeholder="Briefly - relevant tickets, current notice period, anything you want us to know."
                       />
 
                       {error && (
@@ -162,7 +162,7 @@ export function JobPage({ vacancy }: JobPageProps) {
                       <p className="text-[11px] uppercase tracking-[0.14em] text-[var(--color-mid-blue)] mt-2">
                         Prefer email? Send your CV to{" "}
                         <a
-                          href={`mailto:careers@lambsgroup.co.uk?subject=Application — ${encodeURIComponent(vacancy.title)}`}
+                          href={`mailto:careers@lambsgroup.co.uk?subject=Application - ${encodeURIComponent(vacancy.title)}`}
                           className="text-[var(--color-dark-blue)] underline underline-offset-2 decoration-[var(--color-cyan)]"
                         >
                           careers@lambsgroup.co.uk

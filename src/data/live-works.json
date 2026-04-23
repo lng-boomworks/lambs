@@ -3,7 +3,7 @@
   "dots": [
     { "id": "nw-01", "region": "Warrington, NW", "sector": "Telecoms", "lat": 53.39, "lng": -2.597, "status": "Active", "note": "Motif rollout · NW region" },
     { "id": "nw-02", "region": "Manchester, NW", "sector": "Civil Works", "lat": 53.481, "lng": -2.243, "status": "Active", "note": "Barratt civils framework" },
-    { "id": "nw-03", "region": "Liverpool, NW", "sector": "Utilities", "lat": 53.408, "lng": -2.992, "status": "Active", "note": "Utilities mains — housing scheme" },
+    { "id": "nw-03", "region": "Liverpool, NW", "sector": "Utilities", "lat": 53.408, "lng": -2.992, "status": "Active", "note": "Utilities mains - housing scheme" },
     { "id": "nw-04", "region": "Warrington, NW", "sector": "Private Works", "lat": 53.385, "lng": -2.58, "status": "Active", "note": "Domestic drives · local" },
     { "id": "mid-01", "region": "Birmingham, Midlands", "sector": "Telecoms", "lat": 52.486, "lng": -1.89, "status": "Active", "note": "Motif rollout · Midlands" },
     { "id": "mid-02", "region": "Leicester, Midlands", "sector": "Civil Works", "lat": 52.637, "lng": -1.14, "status": "Active", "note": "Local authority reinstatement" },

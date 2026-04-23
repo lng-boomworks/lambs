@@ -32,7 +32,7 @@ export function AboutPage() {
         lede="Lambs Group is a family-run infrastructure contractor based in Warrington. Telecoms, civils, utilities and domestic works, delivered by directly employed crews across the UK since 1988."
         image={storyImage}
         imageAlt="Lambs Group Warrington headquarters"
-        sectionIndex="— / About"
+        sectionIndex="- / About"
       />
 
       <section className="bg-white py-24 lg:py-36">
@@ -47,7 +47,7 @@ export function AboutPage() {
                 <p>In 1988, Simon Lamb founded S Lamb Construction with a small team and a clear principle: employ the people who do the work. Subcontracting through multiple layers, he'd seen, undermines quality and safety.</p>
               </FadeIn>
               <FadeIn delay={260}>
-                <p>Today — now trading as Lambs Group — the company is still based in Warrington, still family-run by Simon and his wife Amanda Lamb, and still employing its operatives directly. Over 100 of them, delivering civils, telecoms, utilities and domestic works from the North West to the south coast.</p>
+                <p>Today - now trading as Lambs Group - the company is still based in Warrington, still family-run by Simon and his wife Amanda Lamb, and still employing its operatives directly. Over 100 of them, delivering civils, telecoms, utilities and domestic works from the North West to the south coast.</p>
               </FadeIn>
               <FadeIn delay={340}>
                 <p>The work has grown. The values haven't.</p>

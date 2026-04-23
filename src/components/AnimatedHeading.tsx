@@ -11,11 +11,11 @@ interface AnimatedHeadingProps {
 }
 
 /**
- * AnimatedHeading — splits text into words and reveals each word with a
+ * AnimatedHeading - splits text into words and reveals each word with a
  * staggered slide-up + fade + subtle rotation on scroll into view.
  *
  * Uses pure CSS classes defined in global.css (.heading-reveal .word span)
- * so server-rendered output already has all the markup — no FOUC.
+ * so server-rendered output already has all the markup - no FOUC.
  */
 export function AnimatedHeading({
   children,

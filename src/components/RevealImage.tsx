@@ -11,7 +11,7 @@ interface RevealImageProps {
 }
 
 /**
- * RevealImage — reveals an image with a clip-path wipe + scale-down + opacity
+ * RevealImage - reveals an image with a clip-path wipe + scale-down + opacity
  * fade when it scrolls into view. Hover adds a slow zoom.
  *
  * Animation styles live in global.css (.reveal-image).

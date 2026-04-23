@@ -8,7 +8,7 @@ import { CTASection } from "../sections/CTASection";
 const leadership = [
   { name: "Simon Lamb", role: "Managing Director", bio: "Founded the business in 1988. Still walks sites. Still picks up the phone.", image: "/images/team/simon-lamb.webp" },
   { name: "Amanda Lamb", role: "Director", bio: "Runs the business alongside Simon. Finance, HR, and keeping the wheels on.", image: "/images/team/amanda-lamb.webp" },
-  { name: "Ray Pennington", role: "Operations Director", bio: "Leads operational delivery across every live programme — telecoms, civils, utilities and domestic works.", image: "/images/team/ray-pennington.webp" },
+  { name: "Ray Pennington", role: "Operations Director", bio: "Leads operational delivery across every live programme - telecoms, civils, utilities and domestic works.", image: "/images/team/ray-pennington.webp" },
 ];
 
 const motifCrew = [
@@ -26,7 +26,7 @@ export function TeamPage() {
         eyebrow="The team"
         heading="People you'll actually talk to."
         lede="Lambs Group is built on long tenures. The directors founded the business. The managers have worked here for decades. The operatives are directly employed."
-        sectionIndex="— / Team"
+        sectionIndex="- / Team"
       />
 
       <section className="bg-white py-24 lg:py-36">

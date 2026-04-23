@@ -27,7 +27,7 @@
   --color-card: var(--color-white);
   --color-card-foreground: var(--color-charcoal);
 
-  /* Typography — Inter only */
+  /* Typography - Inter only */
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
 

@@ -15,12 +15,12 @@ interface PortfolioItem {
 }
 
 const portfolio: PortfolioItem[] = [
-  { id: "1", category: "Resin", title: "Resin drive — Warrington", location: "Warrington", beforeSrc: "https://picsum.photos/seed/p1b/900/600", afterSrc: "https://picsum.photos/seed/p1a/900/600" },
-  { id: "2", category: "Block paving", title: "Block paving — Altrincham", location: "Altrincham", beforeSrc: "https://picsum.photos/seed/p2b/900/600", afterSrc: "https://picsum.photos/seed/p2a/900/600" },
-  { id: "3", category: "Tarmac", title: "Tarmac relay — Lymm", location: "Lymm", beforeSrc: "https://picsum.photos/seed/p3b/900/600", afterSrc: "https://picsum.photos/seed/p3a/900/600" },
-  { id: "4", category: "Patio", title: "Indian stone patio — Hale", location: "Hale", beforeSrc: "https://picsum.photos/seed/p4b/900/600", afterSrc: "https://picsum.photos/seed/p4a/900/600" },
-  { id: "5", category: "Resin", title: "Resin with border — Knutsford", location: "Knutsford", beforeSrc: "https://picsum.photos/seed/p5b/900/600", afterSrc: "https://picsum.photos/seed/p5a/900/600" },
-  { id: "6", category: "Block paving", title: "Herringbone — Stockton Heath", location: "Stockton Heath", beforeSrc: "https://picsum.photos/seed/p6b/900/600", afterSrc: "https://picsum.photos/seed/p6a/900/600" },
+  { id: "1", category: "Resin", title: "Resin drive - Warrington", location: "Warrington", beforeSrc: "https://picsum.photos/seed/p1b/900/600", afterSrc: "https://picsum.photos/seed/p1a/900/600" },
+  { id: "2", category: "Block paving", title: "Block paving - Altrincham", location: "Altrincham", beforeSrc: "https://picsum.photos/seed/p2b/900/600", afterSrc: "https://picsum.photos/seed/p2a/900/600" },
+  { id: "3", category: "Tarmac", title: "Tarmac relay - Lymm", location: "Lymm", beforeSrc: "https://picsum.photos/seed/p3b/900/600", afterSrc: "https://picsum.photos/seed/p3a/900/600" },
+  { id: "4", category: "Patio", title: "Indian stone patio - Hale", location: "Hale", beforeSrc: "https://picsum.photos/seed/p4b/900/600", afterSrc: "https://picsum.photos/seed/p4a/900/600" },
+  { id: "5", category: "Resin", title: "Resin with border - Knutsford", location: "Knutsford", beforeSrc: "https://picsum.photos/seed/p5b/900/600", afterSrc: "https://picsum.photos/seed/p5a/900/600" },
+  { id: "6", category: "Block paving", title: "Herringbone - Stockton Heath", location: "Stockton Heath", beforeSrc: "https://picsum.photos/seed/p6b/900/600", afterSrc: "https://picsum.photos/seed/p6a/900/600" },
 ];
 
 const categories: Category[] = ["All", "Resin", "Block paving", "Tarmac", "Patio"];
@@ -66,7 +66,7 @@ export function PortfolioGallery() {
           {filtered.map((p, i) => (
             <FadeIn key={p.id} delay={i * 80}>
               <article>
-                <BeforeAfter beforeSrc={p.beforeSrc} afterSrc={p.afterSrc} beforeAlt={`${p.title} — before`} afterAlt={`${p.title} — after`} />
+                <BeforeAfter beforeSrc={p.beforeSrc} afterSrc={p.afterSrc} beforeAlt={`${p.title} - before`} afterAlt={`${p.title} - after`} />
                 <div className="mt-4 flex items-start justify-between gap-4">
                   <div>
                     <h3 className="text-[var(--color-dark-blue)] font-semibold text-[18px] leading-tight">{p.title}</h3>

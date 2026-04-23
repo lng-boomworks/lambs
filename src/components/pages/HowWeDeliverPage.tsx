@@ -9,7 +9,7 @@ import { withBase } from "../../utils/paths";
 
 const stages = [
   { icon: PhoneCall, number: "01", title: "Brief", promise: "You call. We listen.", body: "Send the brief. Scope, timing, sector, constraints. We read it, ring you back within one working day, and tell you honestly whether we're the right crew for it.", chip: "1 working day", image: "https://picsum.photos/seed/stage-brief/1000/700" },
-  { icon: MapPinned, number: "02", title: "Survey", promise: "We walk the route.", body: "On-site survey with our own crew. Marker paint, measurements, photos, sketch. We find what the drawings don't show — and give you a report before we quote.", chip: "Directly employed surveyors", image: "https://picsum.photos/seed/stage-survey/1000/700" },
+  { icon: MapPinned, number: "02", title: "Survey", promise: "We walk the route.", body: "On-site survey with our own crew. Marker paint, measurements, photos, sketch. We find what the drawings don't show - and give you a report before we quote.", chip: "Directly employed surveyors", image: "https://picsum.photos/seed/stage-survey/1000/700" },
   { icon: PencilRuler, number: "03", title: "Design", promise: "We draw it first.", body: "Route design, material schedule, programme. Coordinated with client drawings and operator specs. Reviewed internally before you see it.", chip: "Operator-standard drawings", image: "https://picsum.photos/seed/stage-design/1000/700" },
   { icon: Truck, number: "04", title: "Mobilise", promise: "We move the crew.", body: "Permit pulls, PPE drop, vehicle pre-checks, crew brief. Everyone on site knows the plan before the first dig.", chip: "Morning audit call", image: "/images/utilities/job-04.webp" },
   { icon: Construction, number: "05", title: "Deliver", promise: "We dig, duct, joint, splice, lay, finish.", body: "Delivery by directly employed crews. NRSWA-compliant. NEBOSH-supervised. No subcontracting cascade.", chip: "Direct PAYE labour", image: "/images/utilities/job-09.webp" },
@@ -25,8 +25,8 @@ export function HowWeDeliverPage() {
       <PageHero
         eyebrow="How we deliver"
         heading="From brief to handover. Seven stages."
-        lede="Every Lambs Group programme runs through the same seven stages. Sometimes briefly, sometimes in depth — but always in order, always directly, always audited."
-        sectionIndex="— / How We Deliver"
+        lede="Every Lambs Group programme runs through the same seven stages. Sometimes briefly, sometimes in depth - but always in order, always directly, always audited."
+        sectionIndex="- / How We Deliver"
       />
 
       {stages.map((stage, i) => {

@@ -10,7 +10,7 @@ export function MapPage() {
         eyebrow="Live works map"
         heading="Where we're working, this week."
         lede="A live view of every Lambs Group programme currently active. Filter by sector. Click a dot for detail. Updated weekly by the Warrington team."
-        sectionIndex="— / Map"
+        sectionIndex="- / Map"
       />
 
       <section className="bg-white py-16 lg:py-24">

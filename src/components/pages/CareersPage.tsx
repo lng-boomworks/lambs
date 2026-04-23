@@ -12,7 +12,7 @@ import { VACANCIES } from "../../data/vacancies";
 
 const reasons = [
   { number: "01", title: "Directly employed", body: "PAYE contracts, real training, career progression and long tenures. Not agency, not sub-sub." },
-  { number: "02", title: "Proper training", body: "NRSWA, CSCS, NEBOSH — we invest in the tickets and the time it takes to earn them." },
+  { number: "02", title: "Proper training", body: "NRSWA, CSCS, NEBOSH - we invest in the tickets and the time it takes to earn them." },
   { number: "03", title: "Real progression", body: "Many of our managers started on a shovel. We promote from within." },
   { number: "04", title: "Family values", body: "Family-run since 1988. We look after our people because we know their names." },
 ];
@@ -28,14 +28,14 @@ const lifeImages = [
 export function CareersPage() {
   return (
     <PageShell>
-      <SectorIndex label="— / CAREERS" />
+      <SectorIndex label="- / CAREERS" />
       <PageHero
         eyebrow="Careers at Lambs Group"
         heading="Work with people who stick around."
         lede="Directly employed operatives since 1988. If you want proper jobs, real trades, and to actually know who your boss is, we'd like to hear from you."
         image="/images/hero/careers-crew.webp"
         imageAlt="Lambs Group directly employed crew"
-        sectionIndex="— / Careers"
+        sectionIndex="- / Careers"
       />
 
       <section className="bg-white py-24 lg:py-36">
@@ -74,7 +74,7 @@ export function CareersPage() {
             <div className="lg:col-span-7 flex lg:justify-end lg:items-end">
               <FadeIn delay={200}>
                 <p className="text-[var(--color-charcoal)] text-base leading-relaxed max-w-md">
-                  Always open to speaking with qualified operatives. Don't see your role? Send us your CV anyway — we'll keep it on file.
+                  Always open to speaking with qualified operatives. Don't see your role? Send us your CV anyway - we'll keep it on file.
                 </p>
               </FadeIn>
             </div>

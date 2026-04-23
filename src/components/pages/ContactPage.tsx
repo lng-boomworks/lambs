@@ -63,10 +63,10 @@ export function ContactPage() {
               {status === "done" || status === "preview" ? (
                 <FadeIn>
                   <div className="bg-[var(--color-dark-blue)] text-white p-10">
-                    <h3 className="text-2xl font-semibold mb-3">Thanks — we've got it.</h3>
+                    <h3 className="text-2xl font-semibold mb-3">Thanks - we've got it.</h3>
                     <p className="text-white/80">
                       {status === "preview"
-                        ? "Preview mode — the form handler isn't configured yet, so this submission wasn't sent. In production we'd be in touch within one working day."
+                        ? "Preview mode - the form handler isn't configured yet, so this submission wasn't sent. In production we'd be in touch within one working day."
                         : "We'll be in touch within one working day."}
                     </p>
                   </div>

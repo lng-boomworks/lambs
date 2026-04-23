@@ -15,7 +15,7 @@ export function MotifHero() {
           <div className="lg:col-span-6">
             <FadeIn delay={280}>
               <p className="text-white/80 text-lg md:text-xl leading-relaxed max-w-xl">
-                Lambs Group runs one of the largest operational crews on Virgin Media's Motif programme — in partnership with Fujitsu. Built in the North West, delivered across the UK.
+                Lambs Group runs one of the largest operational crews on Virgin Media's Motif programme - in partnership with Fujitsu. Built in the North West, delivered across the UK.
               </p>
             </FadeIn>
           </div>

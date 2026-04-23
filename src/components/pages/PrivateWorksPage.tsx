@@ -29,7 +29,7 @@ export function PrivateWorksPage() {
               </AnimatedHeading>
               <FadeIn delay={260}>
                 <p className="text-[var(--color-charcoal)] text-lg md:text-xl leading-relaxed max-w-md mb-8">
-                  Tarmac, resin, block paving, patios, drainage and dropped kerbs — laid by the same crews that work on our commercial programmes. Directly employed. Compliance-first. Fixed quotes.
+                  Tarmac, resin, block paving, patios, drainage and dropped kerbs - laid by the same crews that work on our commercial programmes. Directly employed. Compliance-first. Fixed quotes.
                 </p>
               </FadeIn>
               <FadeIn delay={380}>
@@ -40,8 +40,8 @@ export function PrivateWorksPage() {
               <BeforeAfter
                 beforeSrc={beforeSrc}
                 afterSrc={afterSrc}
-                beforeAlt="Driveway before — cracked tarmac"
-                afterAlt="Driveway after — new resin finish"
+                beforeAlt="Driveway before - cracked tarmac"
+                afterAlt="Driveway after - new resin finish"
               />
             </div>
           </div>

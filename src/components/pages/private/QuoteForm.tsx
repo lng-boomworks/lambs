@@ -27,7 +27,7 @@ export function QuoteForm({ id }: QuoteFormProps) {
             {submitted ? (
               <FadeIn>
                 <div className="bg-[var(--color-dark-blue)] text-white p-10">
-                  <h3 className="text-2xl font-semibold mb-3">Thanks — we've got it.</h3>
+                  <h3 className="text-2xl font-semibold mb-3">Thanks - we've got it.</h3>
                   <p className="text-white/80">We'll be in touch within one working day to arrange a free on-site measure.</p>
                 </div>
               </FadeIn>

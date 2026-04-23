@@ -2,12 +2,12 @@ import { FadeIn } from "../../FadeIn";
 import { AnimatedHeading } from "../../AnimatedHeading";
 
 const finishes = [
-  { name: "Resin — Autumn Gold", image: "https://picsum.photos/seed/resin-autumn/500/500" },
-  { name: "Resin — Silver Birch", image: "https://picsum.photos/seed/resin-silver/500/500" },
-  { name: "Resin — Charcoal Mix", image: "https://picsum.photos/seed/resin-charcoal/500/500" },
-  { name: "Block — Bradstone Charcoal", image: "https://picsum.photos/seed/block-charcoal/500/500" },
-  { name: "Block — Marshalls Natural", image: "https://picsum.photos/seed/block-natural/500/500" },
-  { name: "Indian Stone — Kandla Grey", image: "https://picsum.photos/seed/stone-kandla/500/500" },
+  { name: "Resin - Autumn Gold", image: "https://picsum.photos/seed/resin-autumn/500/500" },
+  { name: "Resin - Silver Birch", image: "https://picsum.photos/seed/resin-silver/500/500" },
+  { name: "Resin - Charcoal Mix", image: "https://picsum.photos/seed/resin-charcoal/500/500" },
+  { name: "Block - Bradstone Charcoal", image: "https://picsum.photos/seed/block-charcoal/500/500" },
+  { name: "Block - Marshalls Natural", image: "https://picsum.photos/seed/block-natural/500/500" },
+  { name: "Indian Stone - Kandla Grey", image: "https://picsum.photos/seed/stone-kandla/500/500" },
 ];
 
 export function FinishesGallery() {
@@ -22,7 +22,7 @@ export function FinishesGallery() {
             <AnimatedHeading as="h2" className="max-w-2xl">Pick your finish.</AnimatedHeading>
             <FadeIn delay={200}>
               <p className="text-[var(--color-charcoal)] text-lg leading-relaxed mt-6 max-w-2xl">
-                A selection of the most-requested finishes. Ask us for samples of anything not listed — most major manufacturer ranges are available to order.
+                A selection of the most-requested finishes. Ask us for samples of anything not listed - most major manufacturer ranges are available to order.
               </p>
             </FadeIn>
           </div>

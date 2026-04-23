@@ -39,7 +39,7 @@ export function TelecomsPage() {
           </AnimatedHeading>
           <FadeIn delay={280}>
             <p className="text-white/80 text-lg md:text-xl leading-relaxed max-w-2xl">
-              Trusted fibre delivery for the UK's largest operators. FTTH, FTTP, blown fibre, splicing, directional drilling — delivered by directly employed crews, compliant to operator standard.
+              Trusted fibre delivery for the UK's largest operators. FTTH, FTTP, blown fibre, splicing, directional drilling - delivered by directly employed crews, compliant to operator standard.
             </p>
           </FadeIn>
         </div>
@@ -64,7 +64,7 @@ export function TelecomsPage() {
               </AnimatedHeading>
               <FadeIn delay={200}>
                 <p className="text-[var(--color-charcoal)] text-lg leading-relaxed mb-10 max-w-xl">
-                  Lambs Group runs one of the largest operational crews on Virgin Media's Motif programme — a major UK full-fibre build-out delivered in partnership with Fujitsu.
+                  Lambs Group runs one of the largest operational crews on Virgin Media's Motif programme - a major UK full-fibre build-out delivered in partnership with Fujitsu.
                 </p>
               </FadeIn>
               <div className="grid grid-cols-2 gap-px bg-[var(--color-border-strong)] max-w-lg mb-10">
@@ -100,7 +100,7 @@ export function TelecomsPage() {
                 </h3>
               </div>
               <p className="text-[var(--color-mid-blue)] text-sm max-w-sm uppercase tracking-wider font-medium">
-                Placeholder list — to confirm with client
+                Placeholder list - to confirm with client
               </p>
             </div>
           </FadeIn>

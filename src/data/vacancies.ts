@@ -20,7 +20,7 @@ export const VACANCIES: Vacancy[] = [
     type: "Full-time · PAYE",
     days: 4,
     summary:
-      "Joining the Motif crew on the Virgin Media full-fibre rollout — ~2,500 jobs a week across the North West. Fusion splicing, ribbon splicing, OTDR testing and handover paperwork to operator standard.",
+      "Joining the Motif crew on the Virgin Media full-fibre rollout - ~2,500 jobs a week across the North West. Fusion splicing, ribbon splicing, OTDR testing and handover paperwork to operator standard.",
     salary: "Competitive · DOE",
     responsibilities: [
       "Fusion splicing and ribbon splicing in cabinets, chambers and premises",
@@ -47,7 +47,7 @@ export const VACANCIES: Vacancy[] = [
     type: "Full-time · PAYE",
     days: 7,
     summary:
-      "Delivering streetworks across telecoms and utilities programmes — excavation, ducting, chambers, compaction and permanent reinstatement, all to NRSWA standard.",
+      "Delivering streetworks across telecoms and utilities programmes - excavation, ducting, chambers, compaction and permanent reinstatement, all to NRSWA standard.",
     salary: "Competitive · DOE",
     responsibilities: [
       "Excavation and reinstatement to NRSWA Code of Practice",
@@ -70,7 +70,7 @@ export const VACANCIES: Vacancy[] = [
     type: "Full-time · PAYE",
     days: 2,
     summary:
-      "Civils groundworks across housebuilder, utilities and local-authority schemes — foundations, drainage, ducting routes, chambers, kerbs and reinstatement. UK-wide travel, accommodation provided.",
+      "Civils groundworks across housebuilder, utilities and local-authority schemes - foundations, drainage, ducting routes, chambers, kerbs and reinstatement. UK-wide travel, accommodation provided.",
     salary: "Competitive · DOE + away allowance",
     responsibilities: [
       "Setting out, excavation, drainage and ducting installation",
@@ -93,7 +93,7 @@ export const VACANCIES: Vacancy[] = [
     type: "Full-time · PAYE",
     days: 14,
     summary:
-      "Running a crew day-to-day across one or more live programmes — toolbox talks, RAMS reviews, audits, progress reporting and being the face of Lambs on site. HQ-based with daily site visits in the North West.",
+      "Running a crew day-to-day across one or more live programmes - toolbox talks, RAMS reviews, audits, progress reporting and being the face of Lambs on site. HQ-based with daily site visits in the North West.",
     salary: "Competitive · DOE + vehicle",
     responsibilities: [
       "Lead and mentor a crew of directly-employed operatives",

@@ -15,11 +15,11 @@ export async function submitForm(
   formType: FormType
 ): Promise<SubmitResult> {
   if (!endpoint) {
-    // Preview mode — no worker configured yet. Resolve to "preview" so the
+    // Preview mode - no worker configured yet. Resolve to "preview" so the
     // UI can show a friendly note rather than hanging on a dead endpoint.
     if (typeof console !== "undefined") {
       console.warn(
-        "PUBLIC_FORM_ENDPOINT is not set — form submissions are not being sent."
+        "PUBLIC_FORM_ENDPOINT is not set - form submissions are not being sent."
       );
     }
     return { status: "preview", reason: "endpoint-not-configured" };

@@ -12,7 +12,7 @@ import { withBase } from "../../utils/paths";
 type Sector = "All" | "Telecoms" | "Civil Works" | "Utilities" | "Private Works";
 
 const studies = [
-  { id: "motif", flagship: true, client: "Fujitsu · Virgin Media", title: "Virgin Media Motif — national fibre rollout", summary: "One of the largest operational crews on Virgin Media's Motif full-fibre programme. 2,500 jobs per week, 10,000 homes connected per month.", sector: "Telecoms" as Sector, image: "/images/utilities/job-02.webp", stats: [{ value: "2,500+", label: "Jobs / week" }, { value: "10k+", label: "Homes / month" }], href: "/work/motif" },
+  { id: "motif", flagship: true, client: "Fujitsu · Virgin Media", title: "Virgin Media Motif - national fibre rollout", summary: "One of the largest operational crews on Virgin Media's Motif full-fibre programme. 2,500 jobs per week, 10,000 homes connected per month.", sector: "Telecoms" as Sector, image: "/images/utilities/job-02.webp", stats: [{ value: "2,500+", label: "Jobs / week" }, { value: "10k+", label: "Homes / month" }], href: "/work/motif" },
   { id: "barratt", flagship: false, client: "Barratt Developments", title: "National housebuilder civils framework", summary: "Long-standing civils and reinstatement partner to one of the UK's largest housebuilders.", sector: "Civil Works" as Sector, image: "/images/utilities/job-11.webp", stats: [{ value: "Multi-site", label: "Live delivery" }, { value: "Repeat", label: "Framework client" }], href: "/contact" },
   { id: "bury", flagship: false, client: "Bury Council", title: "Local authority highways reinstatement", summary: "NRSWA-compliant highway reinstatement programmes for Bury Council and other North West local authorities.", sector: "Civil Works" as Sector, image: "/images/utilities/job-01.webp", stats: [{ value: "NRSWA", label: "Compliant" }, { value: "UK-wide", label: "Authority work" }], href: "/contact" },
 ];
@@ -30,8 +30,8 @@ export function CaseStudiesPage() {
       <PageHero
         eyebrow="Our Work"
         heading="The work, not the marketing."
-        lede="A selection of programmes we've delivered. More on request — much of our best work is under NDA, but we can walk you through comparable builds and introduce you to the team that ran them."
-        sectionIndex="— / Our Work"
+        lede="A selection of programmes we've delivered. More on request - much of our best work is under NDA, but we can walk you through comparable builds and introduce you to the team that ran them."
+        sectionIndex="- / Our Work"
       />
 
       <section className="bg-white py-20 lg:py-24">
@@ -115,7 +115,7 @@ export function CaseStudiesPage() {
 
           <FadeIn delay={400}>
             <div className="mt-24 pt-12 border-t border-[var(--color-border-strong)] flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-              <p className="text-[var(--color-charcoal)] text-lg max-w-2xl">See where we're working today — across the UK.</p>
+              <p className="text-[var(--color-charcoal)] text-lg max-w-2xl">See where we're working today - across the UK.</p>
               <Button href="/map" variant="secondary" size="md" arrow="up-right">Live works map</Button>
             </div>
           </FadeIn>

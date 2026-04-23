@@ -24,7 +24,7 @@ const commercialSectors = [
     icon: HardHat,
     number: "02",
     title: "Civil Works",
-    blurb: "Excavation, reinstatement, road works, footways, drainage, ducting and chamber installation — NRSWA-compliant, delivered by direct crews.",
+    blurb: "Excavation, reinstatement, road works, footways, drainage, ducting and chamber installation - NRSWA-compliant, delivered by direct crews.",
     href: "/civil-works",
   },
   {
@@ -170,7 +170,7 @@ export function HomePage() {
               </AnimatedHeading>
               <FadeIn delay={280}>
                 <p className="text-[var(--color-charcoal)] text-lg leading-relaxed mt-8 max-w-2xl">
-                  From national fibre rollouts to homeowner driveways — delivered end-to-end by directly employed crews. One contractor, one point of accountability.
+                  From national fibre rollouts to homeowner driveways - delivered end-to-end by directly employed crews. One contractor, one point of accountability.
                 </p>
               </FadeIn>
             </div>
@@ -266,7 +266,7 @@ export function HomePage() {
               <AnimatedHeading as="h2" className="mt-6 mb-8">Family-run since 1988. Directly employed workforce.</AnimatedHeading>
               <FadeIn delay={200}>
                 <div className="space-y-5 text-[var(--color-charcoal)] text-lg leading-relaxed max-w-xl">
-                  <p>Founded as S Lamb Construction in 1988 and now trading as Lambs Group, we deliver infrastructure services across the UK — directly employed operatives, NRSWA-trained, compliance-first.</p>
+                  <p>Founded as S Lamb Construction in 1988 and now trading as Lambs Group, we deliver infrastructure services across the UK - directly employed operatives, NRSWA-trained, compliance-first.</p>
                   <p>Over 100 directly employed operatives and engineers. 30 van audits a month. NEBOSH-accredited supervision on every site. Trusted by Fujitsu, Virgin Media, Barratt Developments and local authorities across the UK.</p>
                 </div>
               </FadeIn>

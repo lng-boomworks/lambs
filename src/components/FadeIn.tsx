@@ -9,7 +9,7 @@ interface FadeInProps {
 }
 
 /**
- * FadeIn — section-level reveal. Slides up + fades in on scroll-into-view
+ * FadeIn - section-level reveal. Slides up + fades in on scroll-into-view
  * using silky cubic-bezier easing. Honors prefers-reduced-motion.
  */
 export function FadeIn({
