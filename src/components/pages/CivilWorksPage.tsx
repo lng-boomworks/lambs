@@ -30,10 +30,17 @@ export function CivilWorksPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7">
               <FadeIn><span className="eyebrow mb-6">Sector 02 · Civil Works</span></FadeIn>
-              <AnimatedHeading as="h1" className="max-w-4xl mt-4 mb-8" stagger={40}>
-                Dig, duct, reinstate. Done to NRSWA standard.
+              <AnimatedHeading as="h1" className="max-w-4xl mt-4 mb-6" stagger={40}>
+                Dig, duct, reinstate.
               </AnimatedHeading>
-              <FadeIn delay={260}>
+              <FadeIn delay={220}>
+                <div className="inline-block bg-[var(--color-cyan)] text-[var(--color-dark-blue)] px-6 py-3 lg:px-8 lg:py-4 mb-10">
+                  <h2 className="text-[20px] md:text-[24px] lg:text-[28px] font-semibold tracking-tight leading-none">
+                    Done to NRSWA standard.
+                  </h2>
+                </div>
+              </FadeIn>
+              <FadeIn delay={320}>
                 <p className="text-[var(--color-charcoal)] text-lg md:text-xl leading-relaxed max-w-2xl">
                   Civils since 1988. From housing estate enabling works to local authority reinstatement frameworks - Lambs Group brings a full civils capability to every programme.
                 </p>
