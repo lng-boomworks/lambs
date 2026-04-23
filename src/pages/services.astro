@@ -1,16 +1,16 @@
 ---
-import Base from '../layouts/Base.astro';
-import { ServicesPage } from '../components/pages/ServicesPage';
-import { getEntry } from 'astro:content';
-
-const page = await getEntry('pages', 'services');
-const d = page.data;
+// Legacy /services route — redirects visitors to the sector index on /telecoms.
+// The new navigation uses dedicated /telecoms, /civil-works and /utilities pages.
 ---
-
-<Base title={d.seo_title ?? d.title} description={d.seo_description}>
-  <ServicesPage
-    client:load
-    heroHeading={d.hero_heading}
-    heroSubheading={d.hero_subheading}
-  />
-</Base>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0; url=/telecoms" />
+    <link rel="canonical" href="/telecoms" />
+    <title>Lambs UK — Services</title>
+  </head>
+  <body>
+    <p>Redirecting to <a href="/telecoms">our telecoms sector page</a>.</p>
+  </body>
+</html>

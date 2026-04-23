@@ -1,61 +1,137 @@
+import { ArrowUpRight } from "lucide-react";
+
+const linkGroups: { title: string; links: { label: string; href: string }[] }[] = [
+  {
+    title: "Sectors",
+    links: [
+      { label: "Telecoms", href: "/telecoms" },
+      { label: "Civil Works", href: "/civil-works" },
+      { label: "Utilities", href: "/utilities" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Team", href: "/team" },
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "Careers", href: "/careers" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    title: "Contact",
+    links: [
+      { label: "01925 810 991", href: "tel:01925810991" },
+      { label: "01925 850 982", href: "tel:01925850982" },
+      { label: "info@lambsgroup.co.uk", href: "mailto:info@lambsgroup.co.uk" },
+    ],
+  },
+];
+
+// NOTE: Accreditations below are placeholders — confirm exact schemes
+// and logos with the client before launch.
+const accreditations = [
+  "ISO 9001",
+  "ISO 14001",
+  "ISO 45001",
+  "CHAS",
+  "Constructionline",
+  "NRSWA",
+];
+
 export function Footer() {
   return (
-    <footer className="bg-charcoal text-white/70">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8">
-          {/* Brand */}
-          <div>
-            <a href="/" className="flex items-center gap-3 mb-6">
-              <span className="font-serif text-[26px] font-medium text-white tracking-tight">Your Business</span>
-            </a>
-            <p className="text-[15px] leading-relaxed mb-6 max-w-sm">
-              Your business tagline goes here.
-            </p>
-            <div className="flex flex-col gap-2 text-[14px]">
-              <a href="tel:01234567890" className="hover:text-white transition-colors">01234 567890</a>
-              <a href="mailto:hello@example.com" className="hover:text-white transition-colors">hello@example.com</a>
-              <span>Your Town, County, Postcode</span>
+    <footer className="bg-[var(--color-ink)] text-white/70 relative">
+      {/* Hi-vis stripe */}
+      <div className="hivis-stripe h-2 w-full" aria-hidden="true" />
+
+      {/* Accreditations strip */}
+      <div className="border-b border-white/10">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-10 flex flex-wrap items-center justify-between gap-6">
+          <span className="eyebrow eyebrow-dark">Accredited &amp; Certified</span>
+          <div className="flex flex-wrap gap-x-8 gap-y-4">
+            {accreditations.map((a) => (
+              <span
+                key={a}
+                className="logo-tile font-mono text-[11px] uppercase tracking-[0.18em] text-white/55 border border-white/15 px-3 py-2"
+              >
+                {a}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Main footer */}
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-20 lg:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Brand pillar */}
+          <div className="lg:col-span-5">
+            <div className="flex items-center gap-3 mb-8">
+              <span className="w-3 h-3 bg-[var(--color-hivis)] block" aria-hidden="true" />
+              <span className="font-display text-[28px] font-semibold text-white tracking-tight">
+                LAMBS
+              </span>
+              <span className="font-mono text-[11px] text-white/50 uppercase tracking-widest mt-1.5">
+                UK
+              </span>
+            </div>
+
+            <h3 className="font-display text-white text-[30px] lg:text-[36px] leading-[1.05] max-w-md mb-8">
+              Building Britain's infrastructure since 1988.
+            </h3>
+
+            <div className="flex flex-col gap-2 text-[14px] font-mono text-white/60 max-w-sm">
+              <span>Tatton Court, Tatton Road, Warrington</span>
+              <span>Prestwood Court (Recruitment), Warrington</span>
             </div>
           </div>
 
-          {/* Navigation */}
-          <div>
-            <h4 className="text-white font-medium mb-6">Navigation</h4>
-            <ul className="flex flex-col gap-3 text-[15px]">
-              <li><a href="/" className="hover:text-white transition-colors">Home</a></li>
-              <li><a href="/services" className="hover:text-white transition-colors">Services</a></li>
-              <li><a href="/about" className="hover:text-white transition-colors">About</a></li>
-              <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
-            </ul>
-          </div>
-
-          {/* Legal & Contact */}
-          <div>
-            <h4 className="text-white font-medium mb-6">Legal & Contact</h4>
-            <ul className="flex flex-col gap-3 text-[15px]">
-              <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Notice</a></li>
-              <li><a href="/contact" className="hover:text-white transition-colors">Contact Us</a></li>
-              <li className="pt-2">
-                <a
-                  href="/contact"
-                  className="inline-block px-4 py-2 border border-white/20 rounded hover:bg-white/10 hover:text-white transition-colors text-sm font-medium"
-                >
-                  Book a Free Call
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-sm">&copy; {new Date().getFullYear()} Your Business. All rights reserved.</p>
-          <div className="flex flex-wrap justify-center gap-2">
-            {["Professional", "Experienced", "Insured", "Free initial consultation"].map((badge) => (
-              <div key={badge} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-white/80">
-                {badge}
+          {/* Link columns */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-10">
+            {linkGroups.map((group) => (
+              <div key={group.title}>
+                <h4 className="eyebrow eyebrow-dark mb-6">{group.title}</h4>
+                <ul className="flex flex-col gap-3.5 text-[15px]">
+                  {group.links.map((link) => (
+                    <li key={link.href}>
+                      <a
+                        href={link.href}
+                        className="nav-link text-white/75 hover:text-white transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Giant wordmark */}
+        <div className="mt-24 pb-6 overflow-hidden">
+          <div
+            className="font-display text-white/5 font-bold tracking-[-0.05em] leading-[0.8] whitespace-nowrap select-none"
+            style={{ fontSize: "clamp(120px, 20vw, 320px)" }}
+            aria-hidden="true"
+          >
+            LAMBS UK
+          </div>
+        </div>
+
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <p className="text-xs font-mono uppercase tracking-wider text-white/50">
+            © {new Date().getFullYear()} Lambs UK. Est. 1988. Family-run. UK-wide.
+          </p>
+          <a
+            href="/contact"
+            className="group inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-white/70 hover:text-[var(--color-hivis)] transition-colors"
+          >
+            Start a project
+            <ArrowUpRight className="w-3.5 h-3.5 btn-arrow" />
+          </a>
         </div>
       </div>
     </footer>

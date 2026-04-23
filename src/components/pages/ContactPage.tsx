@@ -1,176 +1,242 @@
 import { useState } from "react";
-import { Navbar } from "../Navbar";
-import { Footer } from "../Footer";
+import { Phone, Mail, MapPin } from "lucide-react";
+import { AnimatedHeading } from "../AnimatedHeading";
 import { FadeIn } from "../FadeIn";
 import { Button } from "../Button";
-import { Mail, Phone, Calendar, CheckCircle2 } from "lucide-react";
+import { PageShell } from "../sections/PageShell";
 
-interface ContactPageProps {
-  heroHeading?: string;
-  heroSubheading?: string;
-  email?: string;
-  phone?: string;
-  address?: string;
-  calendlyUrl?: string;
-}
+const offices = [
+  {
+    name: "Head Office",
+    lines: ["Tatton Court", "Tatton Road", "Warrington"],
+    phone: "01925 810 991",
+    phoneHref: "tel:01925810991",
+  },
+  {
+    name: "Recruitment",
+    lines: ["Prestwood Court", "Warrington"],
+    phone: "01925 850 982",
+    phoneHref: "tel:01925850982",
+  },
+];
 
-export function ContactPage({
-  heroHeading = "Get in touch",
-  heroSubheading = "We aim to respond within one business day.",
-  email = "hello@example.com",
-  phone = "01234 567890",
-  address = "Your Town, County, Postcode",
-  calendlyUrl = "https://calendly.com/your-link",
-}: ContactPageProps) {
+export function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState("");
 
   return (
-    <>
-      <Navbar />
-      <main className="pt-[72px]">
-        <div className="flex flex-col bg-cream min-h-screen pb-24">
-          <section className="py-20 text-center px-4">
+    <PageShell>
+      {/* Hero */}
+      <section className="relative bg-[var(--color-ink)] text-white overflow-hidden pt-[160px] pb-24 lg:pt-[200px] lg:pb-32">
+        <div className="grid-bg-dark absolute inset-0 opacity-60" aria-hidden="true" />
+        <div className="relative max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="flex items-center justify-between mb-14">
             <FadeIn>
-              <h1 className="mb-6">{heroHeading}</h1>
-              <p className="text-xl text-text-muted">{heroSubheading}</p>
+              <span className="eyebrow eyebrow-dark">Contact · Start a project</span>
             </FadeIn>
-          </section>
+            <FadeIn delay={100}>
+              <span className="font-mono text-xs uppercase tracking-widest text-white/40 hidden md:block">
+                — / Contact
+              </span>
+            </FadeIn>
+          </div>
+          <AnimatedHeading as="h1" className="text-white max-w-5xl mb-10">
+            Let's talk. We answer our own phones.
+          </AnimatedHeading>
+          <FadeIn delay={300}>
+            <p className="text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed">
+              Tell us about the programme. We'll come back to you within one
+              working day with a plan, a price and a person's name at the end
+              of the phone.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
 
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="grid lg:grid-cols-12 gap-12 items-start">
-              <FadeIn className="lg:col-span-4 space-y-6">
-                <a href={`mailto:${email}`} className="flex items-center gap-4 p-6 bg-white rounded-2xl border border-border hover:border-teal-mid hover:shadow-md transition-all group">
-                  <div className="w-12 h-12 rounded-full bg-teal-pale flex items-center justify-center shrink-0">
-                    <Mail className="w-6 h-6 text-teal-deep" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-text-muted mb-1">Email us</div>
-                    <div className="font-medium text-teal-deep group-hover:underline">{email}</div>
-                  </div>
-                </a>
-                <a href={`tel:${phone?.replace(/\s/g, '')}`} className="flex items-center gap-4 p-6 bg-white rounded-2xl border border-border hover:border-teal-mid hover:shadow-md transition-all group">
-                  <div className="w-12 h-12 rounded-full bg-sage-light/30 flex items-center justify-center shrink-0">
-                    <Phone className="w-6 h-6 text-sage" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-text-muted mb-1">Call us</div>
-                    <div className="font-medium text-teal-deep group-hover:underline">{phone}</div>
-                  </div>
-                </a>
-                <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-6 bg-teal-deep text-white rounded-2xl hover:opacity-90 hover:shadow-md transition-all">
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                    <Calendar className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-teal-light/80 mb-1">Schedule a chat</div>
-                    <div className="font-medium underline underline-offset-2">Book a free call</div>
-                  </div>
-                </a>
-                <div className="p-6 bg-ivory rounded-2xl border border-border mt-8">
-                  <h4 className="font-medium text-teal-deep mb-2">Location</h4>
-                  <p className="text-sm text-text-muted leading-relaxed">
-                    Serving [Your Area]
-                    <br /><br />
-                    {address}
-                  </p>
-                </div>
+      {/* Contact grid */}
+      <section className="bg-[var(--color-warm-white)] py-24 lg:py-32">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+            {/* Form */}
+            <div className="lg:col-span-7">
+              <FadeIn>
+                <span className="eyebrow mb-6">Start a project</span>
+                <h2 className="font-display text-[36px] lg:text-[48px] font-semibold mt-6 mb-10 leading-[1.05]">
+                  Send us the brief.
+                </h2>
               </FadeIn>
 
-              <FadeIn delay={0.2} className="lg:col-span-8 bg-white p-8 md:p-12 rounded-[24px] border border-border shadow-sm">
-                {submitted ? (
-                  <div className="text-center py-12">
-                    <CheckCircle2 className="w-16 h-16 text-sage mx-auto mb-6" />
-                    <h2 className="text-2xl mb-4">Thank you for getting in touch</h2>
-                    <p className="text-text-muted text-lg mb-8">We aim to respond within one business day.</p>
-                    <Button href="/" variant="ghost">Back to home</Button>
+              {submitted ? (
+                <FadeIn>
+                  <div className="border border-[var(--color-ink)] p-10 bg-[var(--color-cream)]">
+                    <h3 className="font-display text-2xl font-semibold mb-3">Thanks — we've got it.</h3>
+                    <p className="text-[var(--color-concrete)]">
+                      We'll be in touch within one working day.
+                    </p>
                   </div>
-                ) : (
-                <form
-                  onSubmit={async (e) => {
-                    e.preventDefault();
-                    setSubmitting(true);
-                    setError("");
-                    const form = e.currentTarget;
-                    const data = new FormData(form);
-                    data.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY");
-                    data.append("subject", `Website enquiry from ${data.get("firstName")} ${data.get("lastName")}`);
-                    data.append("from_name", "Website Contact Form");
-                    try {
-                      const res = await fetch("https://api.web3forms.com/submit", {
-                        method: "POST",
-                        body: data,
-                      });
-                      const result = await res.json();
-                      if (result.success) {
-                        setSubmitted(true);
-                      } else {
-                        setError("Something went wrong. Please try again or email us directly.");
-                      }
-                    } catch {
-                      setError("Something went wrong. Please try again or email us directly.");
-                    } finally {
-                      setSubmitting(false);
-                    }
-                  }}
-                  className="space-y-6"
-                >
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-sm font-medium text-text-body mb-2" htmlFor="firstName">First name <span className="text-red-500">*</span></label>
-                        <input name="firstName" id="firstName" required className="w-full px-4 py-3 rounded-lg border border-border focus:ring-teal-mid focus:outline-none focus:ring-2 focus:border-transparent transition-all bg-cream/50" />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-text-body mb-2" htmlFor="lastName">Last name <span className="text-red-500">*</span></label>
-                        <input name="lastName" id="lastName" required className="w-full px-4 py-3 rounded-lg border border-border focus:ring-teal-mid focus:outline-none focus:ring-2 focus:border-transparent transition-all bg-cream/50" />
-                      </div>
+                </FadeIn>
+              ) : (
+                <FadeIn delay={120}>
+                  <form
+                    className="flex flex-col gap-6"
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      setSubmitted(true);
+                    }}
+                  >
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <Field label="Name" name="name" required />
+                      <Field label="Company" name="company" />
                     </div>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-sm font-medium text-text-body mb-2" htmlFor="email">Email <span className="text-red-500">*</span></label>
-                        <input name="email" id="email" type="email" required className="w-full px-4 py-3 rounded-lg border border-border focus:ring-teal-mid focus:outline-none focus:ring-2 focus:border-transparent transition-all bg-cream/50" />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-text-body mb-2" htmlFor="phone">Phone number</label>
-                        <input name="phone" id="phone" type="tel" className="w-full px-4 py-3 rounded-lg border border-border focus:ring-teal-mid focus:outline-none focus:ring-2 focus:border-transparent transition-all bg-cream/50" />
-                      </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <Field label="Email" name="email" type="email" required />
+                      <Field label="Phone" name="phone" type="tel" />
                     </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-text-body mb-2" htmlFor="message">Message <span className="text-red-500">*</span></label>
-                      <textarea name="message" id="message" rows={4} required minLength={10} className="w-full px-4 py-3 rounded-lg border border-border focus:ring-teal-mid focus:outline-none focus:ring-2 focus:border-transparent transition-all bg-cream/50 resize-none" placeholder="How can we help?" />
-                    </div>
-
-                    <div className="pt-4">
-                      <label className="flex items-start gap-3 cursor-pointer">
-                        <input type="checkbox" name="consent" required className="w-5 h-5 mt-1 text-teal-deep bg-cream border-border focus:ring-teal-mid rounded" />
-                        <span className="text-sm text-text-muted leading-relaxed">
-                          I consent to my details being stored to respond to this enquiry, in line with the <a href="/privacy" target="_blank" className="text-teal-mid underline">Privacy Notice</a>. <span className="text-red-500">*</span>
-                        </span>
-                      </label>
-                    </div>
-
-                    {error && (
-                      <div className="p-4 bg-red-50 rounded-xl border border-red-200 text-red-800 text-sm">
-                        {error}
-                      </div>
-                    )}
-
-                    <div className="pt-6">
-                      <Button type="submit" className="w-full sm:w-auto px-10" disabled={submitting}>
-                        {submitting ? "Sending..." : "Send your message"}
+                    <SelectField
+                      label="Sector"
+                      name="sector"
+                      options={["Telecoms", "Civil Works", "Utilities", "Mixed / not sure"]}
+                    />
+                    <TextareaField label="Project brief" name="message" required />
+                    <div className="pt-2">
+                      <Button variant="accent" size="lg" type="submit">
+                        Send brief
                       </Button>
                     </div>
                   </form>
-                )}
+                </FadeIn>
+              )}
+            </div>
+
+            {/* Info */}
+            <div className="lg:col-span-5">
+              <FadeIn delay={180}>
+                <span className="eyebrow mb-6">Where to find us</span>
+                <h3 className="font-display text-[28px] lg:text-[32px] font-semibold mt-6 mb-10">
+                  Based in Warrington. On site everywhere.
+                </h3>
               </FadeIn>
+
+              <div className="flex flex-col gap-px bg-[var(--color-border-strong)]">
+                {offices.map((office, i) => (
+                  <FadeIn key={office.name} delay={i * 160} className="bg-[var(--color-warm-white)] p-8 border border-[var(--color-border)]">
+                    <div className="font-mono text-[11px] uppercase tracking-widest text-[var(--color-concrete)] mb-4">
+                      {office.name}
+                    </div>
+                    <div className="flex items-start gap-3 mb-4">
+                      <MapPin className="w-4 h-4 mt-1.5 text-[var(--color-ink)]" strokeWidth={1.8} />
+                      <address className="not-italic text-[var(--color-ink)] leading-relaxed">
+                        {office.lines.map((line) => (
+                          <div key={line}>{line}</div>
+                        ))}
+                      </address>
+                    </div>
+                    <a
+                      href={office.phoneHref}
+                      className="flex items-center gap-3 nav-link text-[var(--color-ink)] font-mono text-sm"
+                    >
+                      <Phone className="w-4 h-4" strokeWidth={1.8} />
+                      {office.phone}
+                    </a>
+                  </FadeIn>
+                ))}
+
+                <FadeIn delay={360} className="bg-[var(--color-warm-white)] p-8 border border-[var(--color-border)]">
+                  <div className="font-mono text-[11px] uppercase tracking-widest text-[var(--color-concrete)] mb-4">
+                    General enquiries
+                  </div>
+                  <a
+                    href="mailto:info@lambsgroup.co.uk"
+                    className="flex items-center gap-3 nav-link text-[var(--color-ink)] font-mono text-sm"
+                  >
+                    <Mail className="w-4 h-4" strokeWidth={1.8} />
+                    info@lambsgroup.co.uk
+                  </a>
+                </FadeIn>
+              </div>
             </div>
           </div>
         </div>
-      </main>
-      <Footer />
-    </>
+      </section>
+    </PageShell>
+  );
+}
+
+/* ---------- Form primitives ---------- */
+
+function Field({
+  label,
+  name,
+  type = "text",
+  required,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  required?: boolean;
+}) {
+  return (
+    <label className="flex flex-col gap-2">
+      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-concrete)]">
+        {label}
+        {required && <span className="text-[var(--color-hivis-dim)]"> *</span>}
+      </span>
+      <input
+        type={type}
+        name={name}
+        required={required}
+        className="bg-transparent border-0 border-b border-[var(--color-border-strong)] py-3 text-[var(--color-ink)] focus:border-[var(--color-ink)] focus:outline-none transition-colors"
+      />
+    </label>
+  );
+}
+
+function TextareaField({
+  label,
+  name,
+  required,
+}: {
+  label: string;
+  name: string;
+  required?: boolean;
+}) {
+  return (
+    <label className="flex flex-col gap-2">
+      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-concrete)]">
+        {label}
+        {required && <span className="text-[var(--color-hivis-dim)]"> *</span>}
+      </span>
+      <textarea
+        name={name}
+        required={required}
+        rows={5}
+        className="bg-transparent border-0 border-b border-[var(--color-border-strong)] py-3 text-[var(--color-ink)] focus:border-[var(--color-ink)] focus:outline-none transition-colors resize-none"
+      />
+    </label>
+  );
+}
+
+function SelectField({
+  label,
+  name,
+  options,
+}: {
+  label: string;
+  name: string;
+  options: string[];
+}) {
+  return (
+    <label className="flex flex-col gap-2">
+      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-concrete)]">
+        {label}
+      </span>
+      <select
+        name={name}
+        className="bg-transparent border-0 border-b border-[var(--color-border-strong)] py-3 text-[var(--color-ink)] focus:border-[var(--color-ink)] focus:outline-none transition-colors"
+      >
+        {options.map((opt) => (
+          <option key={opt}>{opt}</option>
+        ))}
+      </select>
+    </label>
   );
 }

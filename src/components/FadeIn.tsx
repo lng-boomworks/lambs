@@ -2,55 +2,56 @@ import { useEffect, useRef, type ReactNode } from "react";
 
 interface FadeInProps {
   children: ReactNode;
-  delay?: number;
-  direction?: "up" | "down" | "left" | "right" | "none";
+  delay?: number; // ms
+  y?: number;     // initial Y offset in px
   className?: string;
+  as?: "div" | "section" | "article" | "header" | "footer" | "span";
 }
 
-export function FadeIn({ children, delay = 0, direction = "up", className = "" }: FadeInProps) {
-  const ref = useRef<HTMLDivElement>(null);
+/**
+ * FadeIn — section-level reveal. Slides up + fades in on scroll-into-view
+ * using silky cubic-bezier easing. Honors prefers-reduced-motion.
+ */
+export function FadeIn({
+  children,
+  delay = 0,
+  y = 28,
+  className = "",
+  as: Tag = "div",
+}: FadeInProps) {
+  const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mediaQuery.matches) {
-      el.style.opacity = "1";
-      el.style.transform = "none";
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mq.matches) {
+      el.classList.add("is-visible");
       return;
     }
 
-    const initialTransforms: Record<string, string> = {
-      up: "translateY(24px)",
-      down: "translateY(-24px)",
-      left: "translateX(24px)",
-      right: "translateX(-24px)",
-      none: "none",
-    };
-
-    el.style.opacity = "0";
-    el.style.transform = initialTransforms[direction];
-    el.style.transition = `opacity 0.6s ease ${delay}s, transform 0.6s ease ${delay}s`;
+    el.style.setProperty("--fade-y", `${y}px`);
+    el.style.transitionDelay = `${delay}ms`;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.style.opacity = "1";
-          el.style.transform = "none";
+          el.classList.add("is-visible");
           observer.unobserve(el);
         }
       },
-      { threshold: 0.1, rootMargin: "-30px 0px" }
+      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [delay, direction]);
+  }, [delay, y]);
 
+  const Component = Tag as never;
   return (
-    <div ref={ref} className={className}>
+    <Component ref={ref} className={`fade-in ${className}`}>
       {children}
-    </div>
+    </Component>
   );
 }
