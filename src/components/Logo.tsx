@@ -5,19 +5,17 @@ interface LogoProps {
 }
 
 export function Logo({ variant = "colour", className = "", width = 140 }: LogoProps) {
-  const src =
-    variant === "white"
-      ? "/images/logo-lambs-group-white.svg"
-      : "/images/logo-lambs-group-colour.svg";
-
   return (
     <img
-      src={src}
+      src="/images/lambs-logo-v2.webp"
       alt="Lambs Group"
       className={className}
       width={width}
-      height={width * (48 / 280)}
-      style={{ display: "block" }}
+      height={width * (241 / 1400)}
+      style={{
+        display: "block",
+        filter: variant === "white" ? "brightness(0) invert(1)" : undefined,
+      }}
     />
   );
 }
