@@ -32,15 +32,18 @@ export function PricingBand() {
         <ul className="border-t border-[var(--color-border-strong)]">
           {pricing.map((p, i) => (
             <FadeIn as="span" key={p.finish} delay={i * 60} className="block border-b border-[var(--color-border-strong)]">
-              <div className="grid grid-cols-12 items-center py-6 lg:py-7 gap-6">
+              <div className="grid grid-cols-12 items-baseline py-6 lg:py-7 gap-x-4 lg:gap-x-6 gap-y-3">
                 <div className="col-span-12 md:col-span-6">
                   <h3 className="text-[var(--color-dark-blue)] text-[20px] lg:text-[24px] font-semibold">{p.finish}</h3>
                 </div>
-                <div className="col-span-6 md:col-span-3 text-[var(--color-mid-blue)] text-[12px] uppercase tracking-widest font-medium">
+                <div className="col-span-4 md:col-span-2 text-[var(--color-mid-blue)] text-[12px] uppercase tracking-widest font-medium">
                   From
                 </div>
-                <div className="col-span-6 md:col-span-3 text-right text-[var(--color-dark-blue)] text-[20px] lg:text-[24px] font-semibold">
-                  {p.from} <span className="text-[12px] uppercase tracking-widest text-[var(--color-mid-blue)] font-medium ml-1">{p.unit}</span>
+                <div className="col-span-4 md:col-span-2 text-right text-[12px] uppercase tracking-widest text-[var(--color-mid-blue)] font-medium whitespace-nowrap">
+                  {p.unit}
+                </div>
+                <div className="col-span-4 md:col-span-2 text-right text-[var(--color-dark-blue)] text-[20px] lg:text-[24px] font-semibold tabular-nums">
+                  {p.from}
                 </div>
               </div>
             </FadeIn>
