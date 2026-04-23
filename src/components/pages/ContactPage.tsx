@@ -91,30 +91,48 @@ export function ContactPage() {
               </FadeIn>
 
               <div className="flex flex-col gap-px bg-[var(--color-border-strong)]">
-                {offices.map((office, i) => (
-                  <FadeIn key={office.name} delay={i * 160} className="bg-white p-8">
-                    <div className="text-[11px] uppercase tracking-widest text-[var(--color-mid-blue)] mb-4 font-medium">
-                      {office.name}
-                    </div>
-                    <div className="flex items-start gap-3 mb-4">
-                      <MapPin className="w-4 h-4 mt-1.5 text-[var(--color-dark-blue)]" strokeWidth={1.8} />
-                      <address className="not-italic text-[var(--color-dark-blue)] leading-relaxed">
-                        {office.lines.map((line) => <div key={line}>{line}</div>)}
-                      </address>
-                    </div>
-                    <a href={office.phoneHref} className="flex items-center gap-3 nav-link text-[var(--color-dark-blue)] text-sm">
-                      <Phone className="w-4 h-4" strokeWidth={1.8} />
-                      {office.phone}
-                    </a>
-                  </FadeIn>
-                ))}
+                {offices.map((office, i) => {
+                  const directions = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(office.lines.concat("UK").join(", "))}`;
+                  return (
+                    <FadeIn key={office.name} delay={i * 160} className="bg-white p-8">
+                      <div className="text-[11px] uppercase tracking-widest text-[var(--color-mid-blue)] mb-4 font-medium">
+                        {office.name}
+                      </div>
+                      <a
+                        href={directions}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Get directions to ${office.name}`}
+                        className="flex items-start gap-3 mb-4 text-[var(--color-dark-blue)] hover:text-[var(--color-cyan)] transition-colors group/addr"
+                      >
+                        <MapPin className="w-4 h-4 mt-1 flex-shrink-0 text-[var(--color-dark-blue)] group-hover/addr:text-[var(--color-cyan)] transition-colors" strokeWidth={1.8} />
+                        <address className="not-italic leading-relaxed text-sm">
+                          {office.lines.map((line) => <div key={line}>{line}</div>)}
+                          <span className="block mt-1 text-[11px] uppercase tracking-widest text-[var(--color-mid-blue)] group-hover/addr:text-[var(--color-cyan)] font-medium">
+                            Get directions →
+                          </span>
+                        </address>
+                      </a>
+                      <a
+                        href={office.phoneHref}
+                        className="flex items-start gap-3 text-[var(--color-dark-blue)] hover:text-[var(--color-cyan)] transition-colors text-sm"
+                      >
+                        <Phone className="w-4 h-4 mt-1 flex-shrink-0" strokeWidth={1.8} />
+                        <span className="leading-relaxed">{office.phone}</span>
+                      </a>
+                    </FadeIn>
+                  );
+                })}
                 <FadeIn delay={360} className="bg-white p-8">
                   <div className="text-[11px] uppercase tracking-widest text-[var(--color-mid-blue)] mb-4 font-medium">
                     General enquiries
                   </div>
-                  <a href="mailto:info@lambsgroup.co.uk" className="flex items-center gap-3 nav-link text-[var(--color-dark-blue)] text-sm">
-                    <Mail className="w-4 h-4" strokeWidth={1.8} />
-                    info@lambsgroup.co.uk
+                  <a
+                    href="mailto:info@lambsgroup.co.uk"
+                    className="flex items-start gap-3 text-[var(--color-dark-blue)] hover:text-[var(--color-cyan)] transition-colors text-sm"
+                  >
+                    <Mail className="w-4 h-4 mt-1 flex-shrink-0" strokeWidth={1.8} />
+                    <span className="leading-relaxed">info@lambsgroup.co.uk</span>
                   </a>
                 </FadeIn>
               </div>
