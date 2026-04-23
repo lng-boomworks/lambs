@@ -93,46 +93,47 @@
   }
 }
 
-/* --- Utility classes --- */
-.font-display { font-family: var(--font-display); }
+/* --- Brand utility classes --- */
+.text-dark-blue { color: var(--color-dark-blue); }
+.text-cyan { color: var(--color-cyan); }
+.text-mid-blue { color: var(--color-mid-blue); }
+.text-charcoal { color: var(--color-charcoal); }
+.text-muted { color: var(--color-mid-blue); }
 
-.text-ink { color: var(--color-ink); }
-.text-muted { color: var(--color-concrete); }
-.text-hivis { color: var(--color-hivis); }
-.text-steel { color: var(--color-steel); }
+.bg-dark-blue { background-color: var(--color-dark-blue); }
+.bg-cyan { background-color: var(--color-cyan); }
+.bg-mid-blue { background-color: var(--color-mid-blue); }
+.bg-light-grey { background-color: var(--color-light-grey); }
+.bg-charcoal { background-color: var(--color-charcoal); }
+.bg-white { background-color: var(--color-white); }
 
-.bg-ink { background-color: var(--color-ink); }
-.bg-ink-soft { background-color: var(--color-ink-soft); }
-.bg-hivis { background-color: var(--color-hivis); }
-.bg-cream { background-color: var(--color-cream); }
-.bg-warm-white { background-color: var(--color-warm-white); }
-.bg-steel { background-color: var(--color-steel); }
+.border-dark-blue { border-color: var(--color-dark-blue); }
+.border-cyan { border-color: var(--color-cyan); }
+.border-mid-blue { border-color: var(--color-mid-blue); }
 
-.border-ink { border-color: var(--color-ink); }
-.border-hivis { border-color: var(--color-hivis); }
-
-/* Grid + section chrome */
+/* Subtle grid background (retained, recoloured) */
 .grid-bg {
   background-image:
-    linear-gradient(to right, rgba(10, 14, 26, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(10, 14, 26, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(125, 160, 195, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(125, 160, 195, 0.08) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
 .grid-bg-dark {
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
+/* --- Eyebrow label (Mid Blue small-caps) --- */
 .eyebrow {
   font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--color-concrete);
+  color: var(--color-mid-blue);
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -143,11 +144,15 @@
   display: inline-block;
   width: 28px;
   height: 1px;
-  background: var(--color-hivis);
+  background: var(--color-cyan);
 }
 
 .eyebrow-dark {
-  color: rgba(255, 255, 255, 0.62);
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.eyebrow-dark::before {
+  background: var(--color-cyan);
 }
 
 /* --- Heading reveal --- */
@@ -180,7 +185,7 @@
   position: relative;
   display: block;
   overflow: hidden;
-  background: var(--color-cream);
+  background: var(--color-light-grey);
 }
 .reveal-image img {
   display: block;
@@ -259,17 +264,6 @@
 .logo-tile:hover {
   opacity: 1;
   transform: translateY(-2px);
-}
-
-/* Diagonal stripes for hivis bar */
-.hivis-stripe {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    var(--color-hivis) 0,
-    var(--color-hivis) 14px,
-    var(--color-ink) 14px,
-    var(--color-ink) 28px
-  );
 }
 
 /* Prefers reduced motion */
