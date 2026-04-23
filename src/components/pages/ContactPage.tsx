@@ -4,6 +4,7 @@ import { AnimatedHeading } from "../AnimatedHeading";
 import { FadeIn } from "../FadeIn";
 import { Button } from "../Button";
 import { PageShell } from "../sections/PageShell";
+import { submitForm, type FormType } from "../../utils/submit-form";
 
 type Mode = "commercial" | "domestic";
 
@@ -12,9 +13,12 @@ const offices = [
   { name: "Recruitment", lines: ["Prestwood Court", "Warrington"], phone: "01925 850 982", phoneHref: "tel:01925850982" },
 ];
 
+type Status = "idle" | "sending" | "done" | "preview" | "error";
+
 export function ContactPage() {
   const [mode, setMode] = useState<Mode>("commercial");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [error, setError] = useState<string | null>(null);
 
   return (
     <PageShell>
@@ -56,19 +60,23 @@ export function ContactPage() {
                 </button>
               </div>
 
-              {submitted ? (
+              {status === "done" || status === "preview" ? (
                 <FadeIn>
                   <div className="bg-[var(--color-dark-blue)] text-white p-10">
                     <h3 className="text-2xl font-semibold mb-3">Thanks — we've got it.</h3>
-                    <p className="text-white/80">We'll be in touch within one working day.</p>
+                    <p className="text-white/80">
+                      {status === "preview"
+                        ? "Preview mode — the form handler isn't configured yet, so this submission wasn't sent. In production we'd be in touch within one working day."
+                        : "We'll be in touch within one working day."}
+                    </p>
                   </div>
                 </FadeIn>
               ) : (
                 <FadeIn delay={120}>
                   {mode === "commercial" ? (
-                    <CommercialForm onSubmit={() => setSubmitted(true)} />
+                    <CommercialForm status={status} error={error} setStatus={setStatus} setError={setError} />
                   ) : (
-                    <DomesticForm onSubmit={() => setSubmitted(true)} />
+                    <DomesticForm status={status} error={error} setStatus={setStatus} setError={setError} />
                   )}
                 </FadeIn>
               )}
@@ -118,11 +126,46 @@ export function ContactPage() {
   );
 }
 
-function CommercialForm({ onSubmit }: { onSubmit: () => void }) {
+interface FormStateProps {
+  status: Status;
+  error: string | null;
+  setStatus: (s: Status) => void;
+  setError: (e: string | null) => void;
+}
+
+function useFormHandler(formType: FormType, { setStatus, setError }: FormStateProps) {
+  return async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("sending");
+    setError(null);
+    const result = await submitForm(e.currentTarget, formType);
+    if (result.status === "ok") setStatus("done");
+    else if (result.status === "preview") setStatus("preview");
+    else {
+      setStatus("error");
+      setError(result.message);
+    }
+  };
+}
+
+function Honeypot() {
   return (
-    <form className="flex flex-col gap-6 bg-white p-8 lg:p-10 border border-[var(--color-border)]" onSubmit={(e) => { e.preventDefault(); onSubmit(); }}>
-      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
-      <input type="hidden" name="subject" value="Commercial project enquiry" />
+    <input
+      type="text"
+      name="website"
+      tabIndex={-1}
+      autoComplete="off"
+      className="sr-only"
+      aria-hidden="true"
+    />
+  );
+}
+
+function CommercialForm(props: FormStateProps) {
+  const onSubmit = useFormHandler("contact-commercial", props);
+  return (
+    <form className="flex flex-col gap-6 bg-white p-8 lg:p-10 border border-[var(--color-border)]" onSubmit={onSubmit}>
+      <Honeypot />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Field label="Name" name="name" required />
         <Field label="Company" name="company" />
@@ -133,18 +176,21 @@ function CommercialForm({ onSubmit }: { onSubmit: () => void }) {
       </div>
       <SelectField label="Sector" name="sector" options={["Telecoms", "Civil Works", "Utilities", "Mixed / not sure"]} />
       <TextareaField label="Project brief" name="message" required />
+      {props.error && <p className="text-[13px] text-red-600">{props.error}</p>}
       <div className="pt-2">
-        <Button variant="primary" size="lg" type="submit">Send brief</Button>
+        <Button variant="primary" size="lg" type="submit">
+          {props.status === "sending" ? "Sending…" : "Send brief"}
+        </Button>
       </div>
     </form>
   );
 }
 
-function DomesticForm({ onSubmit }: { onSubmit: () => void }) {
+function DomesticForm(props: FormStateProps) {
+  const onSubmit = useFormHandler("contact-domestic", props);
   return (
-    <form className="flex flex-col gap-6 bg-white p-8 lg:p-10 border border-[var(--color-border)]" onSubmit={(e) => { e.preventDefault(); onSubmit(); }}>
-      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
-      <input type="hidden" name="subject" value="Private Works quote request" />
+    <form className="flex flex-col gap-6 bg-white p-8 lg:p-10 border border-[var(--color-border)]" onSubmit={onSubmit}>
+      <Honeypot />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Field label="Your name" name="name" required />
         <Field label="Email" name="email" type="email" required />
@@ -157,8 +203,11 @@ function DomesticForm({ onSubmit }: { onSubmit: () => void }) {
       <SelectField label="Finish" name="finish" options={["Tarmac", "Resin", "Block paving", "Patio", "Drainage", "Dropped kerb", "Not sure / mix"]} />
       <SelectField label="Timing" name="timing" options={["ASAP", "Within 1 month", "Within 3 months", "Later this year", "No rush"]} />
       <TextareaField label="Anything else?" name="notes" />
+      {props.error && <p className="text-[13px] text-red-600">{props.error}</p>}
       <div className="pt-2">
-        <Button variant="primary" size="lg" type="submit">Send quote request</Button>
+        <Button variant="primary" size="lg" type="submit">
+          {props.status === "sending" ? "Sending…" : "Send quote request"}
+        </Button>
       </div>
     </form>
   );

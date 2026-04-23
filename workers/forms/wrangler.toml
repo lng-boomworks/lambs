@@ -1,0 +1,15 @@
+name = "lambs-forms"
+main = "src/index.ts"
+compatibility_date = "2026-04-01"
+
+# Non-secret variables. Secrets (RESEND_API_KEY) go via `wrangler secret put`.
+[vars]
+FROM_EMAIL = "website@lambsgroup.co.uk"
+TO_GENERAL = "info@lambsgroup.co.uk"
+TO_CAREERS = "careers@lambsgroup.co.uk"
+ALLOWED_ORIGINS = "https://lng-boomworks.github.io,https://lambsgroup.co.uk,https://www.lambsgroup.co.uk"
+
+# Optional: pin to a custom route on your Cloudflare-managed domain
+# [[routes]]
+# pattern = "forms.lambsgroup.co.uk/*"
+# zone_name = "lambsgroup.co.uk"

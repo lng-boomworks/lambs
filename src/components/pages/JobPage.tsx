@@ -5,6 +5,7 @@ import { FadeIn } from "../FadeIn";
 import { Button } from "../Button";
 import { PageShell } from "../sections/PageShell";
 import { withBase } from "../../utils/paths";
+import { submitForm } from "../../utils/submit-form";
 import type { Vacancy } from "../../data/vacancies";
 
 interface JobPageProps {
@@ -12,8 +13,22 @@ interface JobPageProps {
 }
 
 export function JobPage({ vacancy }: JobPageProps) {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "done" | "preview" | "error">("idle");
+  const [error, setError] = useState<string | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+    setError(null);
+    const result = await submitForm(e.currentTarget, "careers-application");
+    if (result.status === "ok") setStatus("done");
+    else if (result.status === "preview") setStatus("preview");
+    else {
+      setStatus("error");
+      setError(result.message);
+    }
+  }
 
   const meta = [
     { icon: MapPin, label: vacancy.location },
@@ -89,28 +104,35 @@ export function JobPage({ vacancy }: JobPageProps) {
                   </p>
                 </FadeIn>
 
-                {submitted ? (
+                {status === "done" || status === "preview" ? (
                   <FadeIn>
                     <div className="bg-[var(--color-dark-blue)] text-white p-10">
                       <h3 className="text-2xl font-semibold mb-3">Thanks — we've got it.</h3>
-                      <p className="text-white/80">We'll be in touch within one working day.</p>
+                      <p className="text-white/80">
+                        {status === "preview"
+                          ? "Preview mode — the form handler isn't configured yet, so this submission wasn't sent. In production we'd be in touch within one working day."
+                          : "We'll be in touch within one working day."}
+                      </p>
                     </div>
                   </FadeIn>
                 ) : (
                   <FadeIn delay={120}>
                     <form
                       className="flex flex-col gap-6 bg-white p-8 lg:p-10 border border-[var(--color-border)]"
-                      onSubmit={(e) => {
-                        e.preventDefault();
-                        setSubmitted(true);
-                      }}
+                      onSubmit={handleSubmit}
                       encType="multipart/form-data"
                     >
-                      {/* TODO: replace with your Web3Forms access key (see public ContactPage form) */}
-                      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
-                      <input type="hidden" name="subject" value={`Careers: ${vacancy.title} application`} />
                       <input type="hidden" name="role" value={vacancy.title} />
                       <input type="hidden" name="role_slug" value={vacancy.slug} />
+                      {/* Honeypot — real users never fill this. */}
+                      <input
+                        type="text"
+                        name="website"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        className="sr-only"
+                        aria-hidden="true"
+                      />
 
                       <Field label="Full name" name="name" required />
                       <Field label="Email" name="email" type="email" required />
@@ -125,9 +147,15 @@ export function JobPage({ vacancy }: JobPageProps) {
                         placeholder="Briefly — relevant tickets, current notice period, anything you want us to know."
                       />
 
+                      {error && (
+                        <p className="text-[13px] text-red-600">
+                          {error}
+                        </p>
+                      )}
+
                       <div className="pt-2">
                         <Button variant="primary" size="lg" type="submit">
-                          Apply for {vacancy.title}
+                          {status === "sending" ? "Sending…" : `Apply for ${vacancy.title}`}
                         </Button>
                       </div>
 

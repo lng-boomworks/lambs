@@ -4,3 +4,5 @@ dist/
 .env
 .DS_Store
 .superpowers/
+workers/forms/node_modules/
+.dev.vars
