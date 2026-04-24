@@ -90,6 +90,9 @@ export function JobPage({ vacancy }: JobPageProps) {
               {vacancy.nice.length > 0 && (
                 <JobSection title="Nice to have" items={vacancy.nice} muted />
               )}
+              {vacancy.whatWeOffer && vacancy.whatWeOffer.length > 0 && (
+                <JobSection title="What we offer" items={vacancy.whatWeOffer} />
+              )}
             </div>
 
             <div className="lg:col-span-5">
