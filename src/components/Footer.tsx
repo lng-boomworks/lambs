@@ -32,7 +32,7 @@ const linkGroups = [
     links: [
       { label: "01925 810 991", href: "tel:01925810991" },
       { label: "01925 850 982 (Recruitment)", href: "tel:01925850982" },
-      { label: "info@lambsgroup.co.uk", href: "mailto:info@lambsgroup.co.uk" },
+      { label: "contact@lambsgroup.co.uk", href: "mailto:contact@lambsgroup.co.uk" },
     ],
   },
 ];
@@ -82,7 +82,6 @@ export function Footer() {
             </h3>
             <div className="flex flex-col gap-2 text-[13px] text-white/60 max-w-sm">
               <span>Tatton Court, Tatton Road, Warrington</span>
-              <span>Prestwood Court (Recruitment), Warrington</span>
             </div>
           </div>
 

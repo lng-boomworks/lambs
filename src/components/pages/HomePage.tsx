@@ -68,7 +68,7 @@ const clients = [
 
 const stats = [
   { value: 100, suffix: "+", label: "Directly employed" },
-  { value: 30, suffix: "", label: "Audits / month" },
+  { value: 55, suffix: "", label: "Audits / month" },
   { value: 2500, suffix: "+", label: "Motif jobs / week" },
   { value: 37, suffix: " yrs", label: "Est. 1988" },
 ];
@@ -113,10 +113,12 @@ export function HomePage() {
             <div className="lg:col-span-6">
               <FadeIn delay={280}>
                 <p className="text-[var(--color-charcoal)] text-lg md:text-xl leading-relaxed max-w-xl">
-                  Lambs Group is a family-run, Warrington-based contractor delivering
-                  telecoms, civil works, utilities and domestic works for operators,
-                  developers, local authorities and homeowners. Directly employed crews.
-                  Compliance-first delivery.
+                  Backed by years of combined industry expertise, Lambs Group is a
+                  family-run Warrington contractor delivering high-quality telecoms,
+                  civil works, utilities and domestic services. With directly employed
+                  teams and a compliance-first approach, we provide reliable,
+                  professional solutions for operators, developers, local authorities
+                  and homeowners.
                 </p>
               </FadeIn>
             </div>

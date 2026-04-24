@@ -1,7 +1,7 @@
 export interface Env {
   RESEND_API_KEY: string;
   FROM_EMAIL: string; // e.g. "website@lambsgroup.co.uk"
-  TO_GENERAL: string; // e.g. "info@lambsgroup.co.uk"
+  TO_GENERAL: string; // e.g. "contact@lambsgroup.co.uk"
   TO_CAREERS: string; // e.g. "careers@lambsgroup.co.uk"
   ALLOWED_ORIGINS: string; // comma-separated list
 }

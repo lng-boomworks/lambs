@@ -10,7 +10,6 @@ type Mode = "commercial" | "domestic";
 
 const offices = [
   { name: "Head Office", lines: ["Tatton Court", "Tatton Road", "Warrington"], phone: "01925 810 991", phoneHref: "tel:01925810991" },
-  { name: "Recruitment", lines: ["Prestwood Court", "Warrington"], phone: "01925 850 982", phoneHref: "tel:01925850982" },
 ];
 
 type Status = "idle" | "sending" | "done" | "preview" | "error";
@@ -128,11 +127,11 @@ export function ContactPage() {
                     General enquiries
                   </div>
                   <a
-                    href="mailto:info@lambsgroup.co.uk"
+                    href="mailto:contact@lambsgroup.co.uk"
                     className="flex items-start gap-3 text-[var(--color-dark-blue)] hover:text-[var(--color-cyan)] transition-colors text-sm"
                   >
                     <Mail className="w-4 h-4 mt-1 flex-shrink-0" strokeWidth={1.8} />
-                    <span className="leading-relaxed">info@lambsgroup.co.uk</span>
+                    <span className="leading-relaxed">contact@lambsgroup.co.uk</span>
                   </a>
                 </FadeIn>
               </div>

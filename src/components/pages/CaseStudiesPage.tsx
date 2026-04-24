@@ -30,7 +30,7 @@ export function CaseStudiesPage() {
       <PageHero
         eyebrow="Our Work"
         heading="The work, not the marketing."
-        lede="A selection of programmes we've delivered. More on request - much of our best work is under NDA, but we can walk you through comparable builds and introduce you to the team that ran them."
+        lede="A selection of delivered programmes. More on request - while much of our best work sits under NDA, we can share comparable projects and the people behind them."
         sectionIndex="- / Our Work"
       />
 
