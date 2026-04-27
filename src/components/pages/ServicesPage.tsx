@@ -108,7 +108,7 @@ export function ServicesPage({
               <p className="text-lg text-white/70 mb-10">Get in touch and we'll help you find the right fit.</p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Button variant="white" href="/contact">Get in touch</Button>
-                <Button variant="outline-white" href="tel:01234567890">Call 01234 567890</Button>
+                <Button variant="outline-white" href="tel:01925810991">Call 01925 810 991</Button>
               </div>
             </FadeIn>
           </section>

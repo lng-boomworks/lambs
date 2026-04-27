@@ -7,8 +7,8 @@ interface StatStripProps {
 }
 
 const defaultStats = [
-  { value: 100, suffix: "+", label: "Directly employed" },
-  { value: 30, suffix: "", label: "Van audits / month" },
+  { value: 75, suffix: "+", label: "Directly employed" },
+  { value: 55, suffix: "", label: "Van audits / month" },
   { value: 2500, suffix: "+", label: "Motif jobs / week" },
   { value: 37, suffix: " yrs", label: "Est. 1988" },
 ];

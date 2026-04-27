@@ -9,7 +9,7 @@ import { submitForm, type FormType } from "../../utils/submit-form";
 type Mode = "commercial" | "domestic";
 
 const offices = [
-  { name: "Head Office", lines: ["Tatton Court", "Tatton Road", "Warrington"], phone: "01925 810 991", phoneHref: "tel:01925810991" },
+  { name: "Head Office", lines: ["Unit 26 Tatton Court", "Kingsland Grange", "Woolston", "Warrington", "WA1 4RR"], phone: "01925 810 991", phoneHref: "tel:01925810991" },
 ];
 
 type Status = "idle" | "sending" | "done" | "preview" | "error";

@@ -13,8 +13,8 @@ interface PersonCard {
 }
 
 const leadership: PersonCard[] = [
-  { name: "Simon Lamb", role: "Managing Director", bio: "Founded the business in 1988. Still walks sites. Still picks up the phone.", image: "/images/team/simon-lamb.webp" },
-  { name: "Amanda Lamb", role: "Director", bio: "Runs the business alongside Simon. Finance, HR, and keeping the wheels on.", image: "/images/team/amanda-lamb.webp" },
+  { name: "Simon Lamb", role: "Managing Director", bio: "Founded the business in 1988 and remains actively involved in every level of delivery.", image: "/images/team/simon-lamb.webp" },
+  { name: "Amanda Lamb", role: "Director", bio: "Oversees finance, HR and operations, working alongside Simon to drive the business forward.", image: "/images/team/amanda-lamb.webp" },
   { name: "Ray Pennington", role: "Operations Director", bio: "Leads operational delivery across every live programme - telecoms, civils, utilities and domestic works.", image: "/images/team/ray-pennington.webp" },
 ];
 
@@ -93,7 +93,7 @@ export function TeamPage() {
         background="bg-white"
         eyebrow="Back office"
         heading="Behind the scenes."
-        lede="The administration team keeping the business running - finance, HR, scheduling and client support."
+        lede="A highly experienced back-office team, with over 15 years at Lambs Group, growing alongside the business. Covering all aspects of work coordination, streetworks and planning, they keep projects running efficiently with a proactive, can-do approach."
         people={backOffice}
       />
 

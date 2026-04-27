@@ -62,12 +62,11 @@ const clients = [
   { name: "Nano", logo: "/images/clients/nano.webp" },
   { name: "CellEx", logo: "/images/clients/cellex.webp" },
   { name: "Core Line Fibre", logo: "/images/clients/cf.webp" },
-  { name: "FT Surfacing", logo: "/images/clients/ft-surfacing.webp" },
   { name: "BWP Consultants", logo: "/images/clients/bwp.webp" },
 ];
 
 const stats = [
-  { value: 100, suffix: "+", label: "Directly employed" },
+  { value: 75, suffix: "+", label: "Directly employed" },
   { value: 55, suffix: "", label: "Audits / month" },
   { value: 2500, suffix: "+", label: "Motif jobs / week" },
   { value: 37, suffix: " yrs", label: "Est. 1988" },
@@ -113,12 +112,10 @@ export function HomePage() {
             <div className="lg:col-span-6">
               <FadeIn delay={280}>
                 <p className="text-[var(--color-charcoal)] text-lg md:text-xl leading-relaxed max-w-xl">
-                  Backed by years of combined industry expertise, Lambs Group is a
-                  family-run Warrington contractor delivering high-quality telecoms,
-                  civil works, utilities and domestic services. With directly employed
-                  teams and a compliance-first approach, we provide reliable,
-                  professional solutions for operators, developers, local authorities
-                  and homeowners.
+                  Lambs Group is a Warrington-based, family-run contractor delivering
+                  telecoms, civils, utilities and domestic works through directly
+                  employed teams. Backed by industry expertise and a compliance-first
+                  approach, we deliver safe, efficient and reliable results.
                 </p>
               </FadeIn>
             </div>
@@ -172,7 +169,7 @@ export function HomePage() {
               </AnimatedHeading>
               <FadeIn delay={280}>
                 <p className="text-[var(--color-charcoal)] text-lg leading-relaxed mt-8 max-w-2xl">
-                  From national fibre rollouts to homeowner driveways - delivered end-to-end by directly employed crews. One contractor, one point of accountability.
+                  Supporting national fibre rollouts and private projects, we focus on minor civils and track works delivered by directly employed, fully qualified crews. With a strong operational and back-office team behind every job, we provide one contractor, one point of accountability.
                 </p>
               </FadeIn>
             </div>
@@ -244,7 +241,7 @@ export function HomePage() {
               <AnimatedHeading as="h2" className="max-w-3xl">Where we're working this week.</AnimatedHeading>
               <FadeIn delay={200}>
                 <p className="text-[var(--color-charcoal)] text-lg leading-relaxed mt-6 max-w-2xl">
-                  Live programmes across telecoms, civils, utilities and domestic works. Updated weekly.
+                  We operate across the North West and Yorkshire, with the flexibility to support projects nationwide through our dedicated travelling crews. Updated weekly.
                 </p>
               </FadeIn>
             </div>
@@ -269,7 +266,7 @@ export function HomePage() {
               <FadeIn delay={200}>
                 <div className="space-y-5 text-[var(--color-charcoal)] text-lg leading-relaxed max-w-xl">
                   <p>Founded as S Lamb Construction in 1988 and now trading as Lambs Group, we deliver infrastructure services across the UK - directly employed operatives, NRSWA-trained, compliance-first.</p>
-                  <p>Over 100 directly employed operatives and engineers. 30 van audits a month. NEBOSH-accredited supervision on every site. Trusted by Fujitsu, Virgin Media, Barratt Developments and local authorities across the UK.</p>
+                  <p>Over 75 directly employed operatives and engineers. 55 van audits a month. NEBOSH-accredited supervision on every site. Trusted by Fujitsu, Virgin Media, Barratt Developments and local authorities across the UK.</p>
                 </div>
               </FadeIn>
               <FadeIn delay={320}>

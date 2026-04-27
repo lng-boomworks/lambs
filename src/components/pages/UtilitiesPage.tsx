@@ -15,7 +15,7 @@ const services = [
   { number: "06", title: "Mains laying & connections", description: "From bulk mains to final service connections - one crew, one programme, one point of contact." },
 ];
 
-const utilitiesAccreditations = ["WIRS", "GIRS", "NERS", "NRSWA", "CHAS"];
+const utilitiesAccreditations = ["WIRS", "GIRS", "NERS", "NRSWA"];
 
 export function UtilitiesPage() {
   return (

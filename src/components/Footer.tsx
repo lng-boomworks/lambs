@@ -31,7 +31,6 @@ const linkGroups = [
     title: "Contact",
     links: [
       { label: "01925 810 991", href: "tel:01925810991" },
-      { label: "01925 850 982 (Recruitment)", href: "tel:01925850982" },
       { label: "contact@lambsgroup.co.uk", href: "mailto:contact@lambsgroup.co.uk" },
     ],
   },
@@ -43,7 +42,7 @@ const isoBadges = [
   { label: "ISO 45001", src: "/images/accreditations/iso-45001.webp" },
 ];
 
-const textBadges = ["CHAS", "Constructionline", "NRSWA"];
+const textBadges = ["NRSWA"];
 
 export function Footer() {
   return (
@@ -81,7 +80,7 @@ export function Footer() {
               Infrastructure services across the UK. Safely, compliantly, on programme.
             </h3>
             <div className="flex flex-col gap-2 text-[13px] text-white/60 max-w-sm">
-              <span>Tatton Court, Tatton Road, Warrington</span>
+              <span>Unit 26 Tatton Court, Kingsland Grange, Woolston, Warrington WA1 4RR</span>
             </div>
           </div>
 

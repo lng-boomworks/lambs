@@ -9,7 +9,7 @@ export function MapPage() {
       <PageHero
         eyebrow="Live works map"
         heading="Where we're working, this week."
-        lede="A live view of every Lambs Group programme currently active. Filter by sector. Click a dot for detail. Updated weekly by the Warrington team."
+        lede="We operate across the North West and Yorkshire, with the flexibility to support projects nationwide through our dedicated travelling crews. Filter by sector, click a dot for detail. Updated weekly by the Warrington team."
         sectionIndex="- / Map"
       />
 

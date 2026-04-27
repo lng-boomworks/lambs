@@ -3,9 +3,9 @@ import { FadeIn } from "../../FadeIn";
 import { NumberTicker } from "../../NumberTicker";
 
 const qc = [
-  { value: 30, label: "Van audits every month" },
+  { value: 55, label: "Van audits every month" },
   { value: 100, suffix: "%", label: "NEBOSH supervision on every site" },
-  { value: 100, suffix: "+", label: "NRSWA-trained operatives" },
+  { value: 100, suffix: "%", label: "NRSWA-trained operatives" },
 ];
 
 export function MotifQC() {

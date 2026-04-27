@@ -18,7 +18,7 @@ export function FinalCTA({
           <p className="text-teal-light text-lg mb-10 max-w-2xl mx-auto">{text}</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button variant="white" href="/contact">Get in touch</Button>
-            <Button variant="outline-white" href="tel:01234567890">Call 01234 567890</Button>
+            <Button variant="outline-white" href="tel:01925810991">Call 01925 810 991</Button>
           </div>
         </FadeIn>
       </div>

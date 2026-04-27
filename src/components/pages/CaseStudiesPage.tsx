@@ -29,7 +29,7 @@ export function CaseStudiesPage() {
     <PageShell>
       <PageHero
         eyebrow="Our Work"
-        heading="The work, not the marketing."
+        heading="Proven delivery, not promises."
         lede="A selection of delivered programmes. More on request - while much of our best work sits under NDA, we can share comparable projects and the people behind them."
         sectionIndex="- / Our Work"
       />
